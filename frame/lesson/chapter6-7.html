@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--链接图标start-->
+<script type="text/javascript" src="../js/text/link_external_icon.js"></script>
+<!--链接图标end-->
+<body>
+<div id="scrollContent">
+	当引入了下面的脚本：
+<textarea class="code">
+<script type="text/javascript" src="../js/text/link_external_icon.js"></script>
+</textarea>
+<pre></pre>	
+	那么当有链接的target为_blank（即在新窗口打开）时，链接会出现一个小图标，提示用户该链接是在新窗口打开的。效果如下：<br /><br />
+	<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+	<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+	<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+	<a href="javascript:;">非新窗口打开的文字链接</a>
+	
+<textarea class="code">
+<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+<a href="javascript:;" target="_blank">新窗口打开的文字链接</a><br /><br />
+<a href="javascript:;">非新窗口打开的文字链接</a>
+</textarea>
+<pre></pre>	
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

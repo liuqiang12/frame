@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<script type="text/javascript" src="../js/scroll/innerfade.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			$('#news1').innerfade();
+			$('#news2').innerfade({
+				animationtype: 'slide',
+				speed: 750,
+				timeout: 2000,
+				type: 'random',
+				containerheight: '1em'
+			});
+	});
+</script>
+<body>
+<div id="scrollContent">
+	<div class="box2" panelWidth="800" panelTitle="基本用法">
+	首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/scroll/innerfade.js"></script>
+</textarea>
+<pre></pre>
+	HTML部分
+<textarea class="code">
+<div style="width:200px;border:solid 1px #ccc;height:25px;">
+	<ul id="news1">
+		<li><a href="javascript:;">新闻信息1</a></li>
+		<li><a href="javascript:;">新闻信息新闻2</a></li>
+		<li><a href="javascript:;">新闻信息新闻信息3</a></li>
+		<li><a href="javascript:;">新闻信息新闻信息新闻4</a></li>
+	</ul>
+</div>
+</textarea>
+<pre></pre>
+	JS部分
+<textarea class="code">
+$(document).ready(function(){
+		$('#news1').innerfade();
+});
+</textarea>
+<pre></pre>
+效果如下：
+	<div style="width:200px;border:solid 1px #ccc;height:25px;">
+		<ul id="news1">
+			<li><a href="javascript:;">新闻信息1</a></li>
+			<li><a href="javascript:;">新闻信息新闻2</a></li>
+			<li><a href="javascript:;">新闻信息新闻信息3</a></li>
+			<li><a href="javascript:;">新闻信息新闻信息新闻4</a></li>
+		</ul>
+	</div>
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="自定义参数">
+还可以自定义参数实现不同效果，代码如下：
+<textarea class="code">
+$(document).ready(function(){
+		$('#news2').innerfade({
+			animationtype: 'slide',
+			speed: 750,
+			timeout: 2000,
+			type: 'random',
+			containerheight: '1em'
+		});
+});
+</textarea>
+<pre></pre>	
+	效果：
+	<div style="width:200px;border:solid 1px #ccc;height:25px;">
+		<ul id="news2">
+			<li><a href="javascript:;">新闻信息1</a></li>
+			<li><a href="javascript:;">新闻信息新闻2</a></li>
+			<li><a href="javascript:;">新闻信息新闻信息3</a></li>
+			<li><a href="javascript:;">新闻信息新闻信息新闻4</a></li>
+		</ul>
+	</div>
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

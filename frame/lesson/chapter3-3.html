@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--浮动面板start-->
+<script type="text/javascript" src="../js/attention/floatPanel.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#floatPanel-1").floatPanel({})
+	})
+</script>
+<!--浮动面板end-->
+<body>
+	<div style="height:30px;"></div>
+	<div id="scrollContent">
+	<div id="floatPanel-1">这是第一个面板，<br/>所有参数均采用默认，<br/>效果是宽为400靠上水平居中的窗口，<br/>并且当页面初始时会以动画的方式收回用来提醒用户这里有个浮动面板。</div>
+		<div class="box2" panelTitle="组件特点">
+		1、可以在8个方向弹出面板<br /> 
+		2、一个页可以使用多个面板 <br />
+		3、面板内容可以在本页内也可以使用iframe模式嵌入其他页<br /> 
+		4、通过参数可灵活配置表现，如尺寸、按钮文字、动画时间、初始时是打开的还是闭合的、初始是否以动画形式展示等
+		</div>
+		
+		<div class="box2" panelTitle="基本用法">
+		创建一个基本的浮动面板：<br />
+		先引入脚本：
+<textarea class="code">
+<script type="text/javascript" src="../js/attention/floatPanel.js"></script>
+</textarea>
+<pre></pre>
+		
+		在写一个div容器，设置一个id（<span class="font_bold">注意，要写在id="scrollContent"容器的里面</span>），代码如下：<br />
+<textarea class="code">
+<div id="floatPanel-1">面板的内容</div>
+</textarea>
+<pre></pre>
+
+然后在初始化函数中对该id调用floatPanel()
+<textarea class="code">
+$(document).ready(function(){
+	$("#floatPanel-1").floatPanel({})
+})
+</textarea>
+<pre></pre>
+
+这样就可以了，效果为靠上水平居中、宽度为400的窗口。并且当页面初始时会以动画的方式收回用来提醒用户这里有个浮动面板。<br />
+	</div>
+	
+	<div class="box2" panelTitle="参数说明">
+可以通过参数来对面板做配置，例如要弹出从右向左打开的面板，并自定义按钮上的文本，则使用如下代码：<br />
+<textarea class="code">
+$("#floatPanel-1").floatPanel({
+	direction:"mr",
+	beforeClickText:"关闭面板",
+	afterClickText:"打开面板"
+})
+</textarea>
+<pre></pre>
+
+参数列表如下：
+		<table class="tableStyle">
+			<thead>
+				<tr><th>参数名</th><th>默认值</th><th>参数说明</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>width</td><td>400</td><td>面板宽度，也可以使用百分比，如90%。注意数字不加引号，百分比加引号。另外<span class="font_bold">当direction为"ml"或"mr"时不可用百分比。</span>无height参数，因为面板高度自适应内容。</td></tr>
+				<tr><td>beforeClickText</td><td>"打开面板"</td><td>面板展开之前的按钮上的文字</td></tr>
+				<tr><td>afterClickText</td><td>"关闭面板"</td><td>面板展开之后的按钮上的文字</td></tr>
+				<tr><td>duration</td><td>500</td><td>面板展开动画持续时间，单位毫秒</td></tr>
+				<tr><td>animatefirst</td><td>true</td><td>初始时是否以动画方式收缩</td></tr>
+				<tr><td>direction</td><td>"tc"</td><td>面板放置的方位。有8个可选项，tl：居上靠左（top,left）；tc：居上居中（top,center）；tr：居上靠右（top,right）；ml：中间靠左（middle,left）；mr：中间靠右（middle,right）；bl：下方靠左（bottom,left）；bc：下方居中（bottom,center）；br：下方靠右（bottom,right）；</td></tr>
+				<tr><td>iframe</td><td>false</td><td>此参数默认为false表示将本页中的一个div里的内容作为浮动面板的内容，如果想使用某一页的内容作为浮动面板的内容，则将该页路径赋予iframe属性，如iframe:"27-2.html"。<span class="font_bold">同一个网页不能有两个以上的iframe模式的面板，而且iframe模式的面板必须要在最后定义</span></td></tr>
+				<tr><td>depth</td><td>600++</td><td>面板的层级深度，生成第一个面板的层级默认为700，一会每次生成一个面板会+1。如果有多个面板并且可能会相互叠加，那么depth大的会把小的盖住（即后生成的会盖住之前生成的）。通过设置depth可以自定义各面板层次关系。<span class="font_bold">不建议小于700否则可能无法遮挡住select下拉框。</span></td></tr>
+				<tr><td>init</td><td>"hide"</td><td>初始时是打开状态还是关闭状态。为"show"时初始为打开状态，<span class="font_bold">这时需要自定义beforeClickText和afterClickText，因为默认的文字是相反的。</span>这时如果animatefirst为true时初始时会以动画形式出现。</td></tr>
+				<tr><td>topDistance</td><td>30</td><td>面板距顶部的位置。当direction为ml或mr时有效</td></tr>
+			</tbody>
+		</table>
+		</div>
+
+	</div>
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

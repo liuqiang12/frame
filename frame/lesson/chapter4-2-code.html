@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<script>
+	$(function(){
+		showProgressBar();
+	})
+</script>
+<body>
+	首先引入js脚本和css
+<textarea class="code">
+<link rel="stylesheet" type="text/css" href="../js/table/flexigrid/css/flexigrid/flexigrid.css">
+<script type="text/javascript" src="../js/table/flexigrid/flexigrid.js"></script>
+</textarea>
+<pre></pre>		
+	然后在页面写一个一般的table，但要注意：<br />
+	1、table的class不要是tableStyle否则将与基本表格冲突，建议class="flexiStyle"<br />
+	2、table要有thead和tbody<br />
+	3、对每个th要设置宽度，该宽度不能是百分比
+<textarea class="code">
+<table class="flexiStyle">
+    <thead>
+        <tr><th width="60">姓名</th><th width="50">性别</th></tr>
+    </thead>                           
+    <tbody>
+    	<tr><td>张小三</td><td>男</td></tr>
+    	<tr><td>张小三</td><td>男</td></tr>
+    </tbody>
+</table>
+</textarea>
+<pre></pre>
+写脚本，将普通表格渲染为扩展表格
+<textarea class="code">
+$(function(){
+  var parentMainHeight = window.parent.document.documentElement.clientHeight;
+  var flexiGridHeight=parentMainHeight-parentTopHeight-parentBottomHeight-fixHeight-45;
+  //定义flexiGridHeight是为了让表格自适应页面高度，如果不需要可以将下面的height设为一个具体数值
+  $('.flexiStyle').flexigrid({height:flexiGridHeight,resizable: false,showToggleBtn: false});	
+})
+</textarea>
+<pre></pre>	
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+		top.Dialog.close();
+	}
+</script>
+<!--代码高亮end-->
+</html>
+

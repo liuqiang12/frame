@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--迷你进度条start-->
+<script type="text/javascript" src="../js/attention/prettyLoader.js"></script>
+<!--迷你进度条end-->
+<body>
+<div id="scrollContent">
+	前两种进度条都是尺寸比较大的，有时候需要迷你型的进度条。例如当翻页时可以显示一个迷你进度条，翻页完成后页面重定向进度条自动消失。也可以手动让进度条消失。效果如下<br />
+	<input type="button" onclick="$.prettyLoader.show();" value="显示进度条" />
+	<input type="button" onclick="$.prettyLoader.hide();" value="隐藏进度条" />
+	<br />首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/attention/prettyLoader.js"></script>
+</textarea>
+<pre></pre>	
+	
+	当要显示进度条时调用$.prettyLoader.show()，要隐藏进度条使用$.prettyLoader.hide()。代码如下：<br />
+<textarea class="code">
+<input type="button" onclick="$.prettyLoader.show();" value="显示进度条" />
+<input type="button" onclick="$.prettyLoader.hide();" value="隐藏进度条" />
+</textarea>
+<pre></pre>	
+	
+	还可以设置显示进度条后多久消失。
+	<input type="button" onclick="$.prettyLoader.show(2000);" value="点击两秒后进度条消失" />
+	<br />代码如下：<br />
+<textarea class="code">
+<input type="button" onclick="$.prettyLoader.show(2000);" value="点击两秒后进度条消失" />
+</textarea>
+<pre></pre>		
+	
+	也可以用在ajax加载中。
+	<input type="button" onclick="$('#ajax_container').load('chapter3-8-content1.html');" value="ajax加载" />
+	<div id="ajax_container"></div>
+	
+	<br />代码如下：<br />
+<textarea class="code">
+<input type="button" onclick="$('#ajax_container').load('chapter3-8-content1.html');" value="ajax加载" />
+<div id="ajax_container"></div>
+</textarea>
+<pre></pre>	
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

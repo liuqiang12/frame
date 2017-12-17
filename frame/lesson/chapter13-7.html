@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--让ie6支持透明png图片start-->
+<script type="text/javascript" src="../js/method/pngFix/supersleight.js"></script>
+<!--让ie6支持透明png图片end-->
+<script>
+	$(function(){
+		$("#img1").hover(function(){
+			$(this).attr("src","../images/demo/btn1_over.png")
+		},function(){
+			$(this).attr("src","../images/demo/btn1.png")
+		})
+	})
+</script>
+<body style="background-color:#84ddc4">
+	<div id="scrollContent">
+		&nbsp;&nbsp;&nbsp;&nbsp;本内容请在ie6下看效果：<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;要让ie6支持半透明的png图片引入下面的脚本就可以了。
+<textarea class="code">
+<script type="text/javascript" src="../js/method/pngFix/supersleight.js"></script>
+</textarea>
+<pre></pre>	
+
+		&nbsp;&nbsp;&nbsp;&nbsp;img标签<br />
+		<img src="../images/demo/img2.png" /><br /><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;背景图<br />
+		<div class="pngFixSample1"></div><br /><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;但如果图片是动态变化的就有问题了(鼠标移入下面的图)：<br />
+		<a href="javascript:;"><img src="../images/demo/btn1.png" id="img1" width="134" height="127"></a><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;那么就需要用使用pngbehavior.htc这个文件来代替supersleight.js。该文件使用方法：
+<textarea class="code">
+<style>
+img {
+	behavior:url("../js/method/pngFix/pngbehavior.htc");
+}
+</style>
+</textarea>
+<pre></pre>	
+
+	&nbsp;&nbsp;&nbsp;&nbsp;使用这个文件的缺点是，无法对png背景图做处理，只有img标签生效。另外img标签必须要指定width和height。如下
+<textarea class="code">
+<a href="javascript:;"><img src="../images/demo/btn1.png" id="img1" width="134" height="127"></a>
+</textarea>
+<pre></pre>		
+	&nbsp;&nbsp;&nbsp;&nbsp;所以如果没有这种特殊需求还是用supersleight.js比较好。
+	</div>
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->

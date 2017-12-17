@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	1、图片过大会撑坏网页结构。对于大图可以强制设置width（不要设置height），这样可以对大图片等比例缩小。<br/><br/>
+	2、对于一个容器里的一组图片，可以用css批量设置尺寸，如容器设置class="content"，如下面代码
+<textarea class="code">
+<div class="content">
+	<img src="../images/demo/01.jpg"/>
+	<img src="../images/demo/02.jpg"/>
+	<img src="../images/demo/03.jpg"/>
+</div>
+</textarea>
+<pre></pre>
+然后写css
+<textarea class="code">
+.content img{width:400px;}
+</textarea>
+<pre></pre>
+但这样对于小于400的图片也会强制变为400。<br/><br/>
+	3、对容器设置class="imgFix"来实现只有宽度大于某一值的图片才等比例缩小（imgFix已经在框架内部做过处理）。比较典型的应用就是新闻的详细页，对新闻内容所在容器设置class="imgFix",用户上传的图片就会自动被缩小，
+	但要注意不要让img标签产生widht属性否则会以width属性优先。（用户在文本编辑器对上传的图片进行拖拽就会产生width属性）。代码如下：
+<textarea class="code">
+<div class="imgFix">
+	<img src="../images/demo/01.jpg"/>
+	<img src="../images/demo/02.jpg"/>
+	<img src="../images/demo/03.jpg"/>
+</div>
+</textarea>
+<pre></pre>
+	默认对于宽度超过480的图片会生效。宽度大于480px的图片会被等比例缩小到480，而小于480px的图片保持原尺寸不变。480这个值可以在css框架的basic.css中修改<br/>
+	例如下图是使用了class="imgFix"的div作为图片的容器（某些浏览器可能不生效）
+	<div class="imgFix">
+		<a href="../images/demo/img1.jpg" title="点击查看原图" target="_blank"><img src="../images/demo/img1.jpg"/></a>
+	</div>
+	
+	
+</div>						
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

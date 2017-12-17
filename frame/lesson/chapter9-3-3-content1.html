@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	垂直选项卡代码如下：
+<textarea class="code">
+<table width="100%">
+	<tr>
+		<td width="220" class="ver01">
+			<div class="list_menu3" style="position: absolute;">
+				<div class="current"><span><a href="chapter9-3-3-content1.html" target="frmrightChild">使用说明</a></span></div>
+				<div><span><a href="chapter9-3-2-content2.html" target="frmrightChild">选项2</a></span></div>
+				<div><span><a href="chapter9-3-2-content3.html" target="frmrightChild">选项3</a></span></div>
+				<div><span><a href="chapter9-1-1-content1.html" target="frmrightChild">选项4</a></span></div>
+				<div><span><a href="chapter9-1-1-content2.html" target="frmrightChild">选项5</a></span></div>
+				<div><span><a href="chapter9-1-1-content3.html" target="frmrightChild">选项6</a></span></div>
+			</div>
+		</td>
+		<td class="ver01">
+			<div class="box1">
+				<IFRAME scrolling="no" width="100%" frameBorder=0 id=frmrightChild name=frmrightChild onload="iframeHeight('frmrightChild')" src="chapter9-3-3-content1.html"  allowTransparency="true"></IFRAME>
+			</div>
+		</td>
+	</tr>
+</table>
+</textarea>
+<pre></pre>
+	可以引入去掉链接虚线的htc文件达到更好的效果：
+<textarea class="code">
+<style>
+a {
+	behavior:url(../js/method/focus.htc)
+}
+</style>
+</textarea>
+<pre></pre>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

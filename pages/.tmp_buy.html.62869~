@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://www.uur.cn/wp-content/themes/uur/images/favicon.ico" />
+<title>UU人 网页界面集成框架</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<script type="text/javascript" src="../frame/js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../frame/js/pic/imgPreview.js"></script>
+<body>
+	<div class="main">
+	<div class="main_con">
+		<div class="top">
+			<div class="top_left"><a title="点击返回UU人基地首页" href="http://www.uur.cn"><img src="images/logo.jpg"/></a></div>
+			<div class="top_right">
+				<div class="top_right_navLeft"></div>
+				<div class="top_right_navRight">
+					<ul>
+						<li><a href="../index.html">首页</a></li>
+						<li><a href="choose.html">开始体验</a></li>
+						<li><a href="skins_frame.html">框架皮肤中心</a></li>
+						<li><a href="skins_login.html">登录页皮肤中心</a></li>
+						<li><a href="split.html">分离版组件</a></li>
+						<li class="current">下载与购买</li>
+						<li><a href="http://www.uur.cn/guestbook" target="_blank">提问与留言</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="banner">
+			<div class="baner_con">
+				<a href="choose.html">
+					<img src="images/click.gif"/>
+				</a>
+			</div>
+		</div>
+		<div class="content2">
+			<div class="title00">
+				<div class="title00_con">付款方式</div>
+			</div>
+			<div class="box_top"></div>
+			<div class="box_middle">
+				<div class="box_item" style="padding-left:55px;">
+					<div class="split_intro">
+					<img src="images/bank.jpg"/><span style="font-size:18px;font-weight:bold;">中国工商银行</span><br/>
+账号： <b>622202 0200079008187</b><br/>
+开户行: 北京海淀支行二里庄支行<br/>
+收款人: 付凯<br/>
+</div>	
+<div class="split_intro" style="color:red;font-weight:bold;">
+	有意购买框架请先联系。
+</div>	
+<div class="split_intro">
+EMAIL：uurkai@163.com<br/>
+QQ：378966107<br/>
+手机：15001383524
+</div>	
+				</div>
+			</div>
+			<div class="box_bottom"></div>
+			
+			<div class="title00">
+				<div class="title00_con">企业版购买</div>
+			</div>
+			<div class="box_top"></div>
+			<div class="box_middle">
+				<div class="box_item">
+					<div class="split_intro" style="padding-left:55px;">
+						企业版售价：6800元。包括：
+					</div>	
+					<div class="buy_item">
+						<ul>
+						<li><span>UU人网页界面框架ver2.0正式版</span></li>
+						<li><span>UU人框架组件和特效的分离版本</span></li>
+						<li><span>提供所有含有注释的未加密JS脚本</span></li>
+						<li><span>包含“框架皮肤中心”和“登录页皮肤中心”中展示的所有皮肤包</span></li>
+						<li><span>提供框架所有皮肤和组件的PSD设计源文件</span></li>
+						<li><span>永久免费升级（包括免费获取新的皮肤）</span></li>
+						<li><span>2个月的技术支持服务</span></li>
+						<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="box_bottom"></div>
+			
+			<div class="title00">
+				<div class="title00_con">个人版购买</div>
+			</div>
+			<div class="box_top"></div>
+			<div class="box_middle">
+				<div class="box_item">
+					<div class="split_intro" style="padding-left:55px;">
+						个人版售价：570元。包括：
+					</div>	
+					<div class="buy_item">
+						<ul>
+						<li><span>UU人网页界面框架ver2.0正式版</span></li>
+						<li><span>UU人框架组件和特效的分离版本</span></li>
+						<li><span>提供除核心文件framework.js外的所有含有注释的未加密JS脚本</span></li>
+						<li><span>包含5套框架皮肤和30套登录页皮肤</span></li>
+						<li><span>提供皮肤中标题的PSD设计源文件</span></li>
+						<li><span>永久免费升级但不包括免费获取新的皮肤</span></li>
+						<li><span>3天的技术支持服务</span></li>
+						<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="split_intro" style="padding-left:55px;">
+						个人版补差价后可升级为企业版。
+					</div>	
+				</div>
+			</div>
+			<div class="box_bottom"></div>
+			
+			<div class="title00">
+				<div class="title00_con">试用版下载</div>
+			</div>
+			<div class="box_top"></div>
+			<div class="box_middle">
+				<div class="box_item">
+					<div class="split_intro" style="padding-left:55px;">
+						试用版包括：
+					</div>	
+					<div class="buy_item">
+						<ul>
+						<li><span>UU人网页界面框架beta版</span></li>
+						<li><span>UU人框架组件和特效的分离版本</span></li>
+						<li><span>所有JS脚本均加密</span></li>
+						<li><span>包含2套框架皮肤和2套登录页皮肤</span></li>
+						<li><span>不提供PSD设计源文件</span></li>
+						<li><span>不可升级</span></li>
+						<li><span>无技术支持服务</span></li>
+						<li><span>仅供学习研究使用，不可用于商业用途</span></li>
+						<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="buy_down">
+						<a href="javascript:alert('这已经是试用版啦！')">
+						<img src="images/download.jpg"/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="box_bottom"></div>
+			
+			
+		</div>
+		<div class="foot">
+			“UU人” 网页界面集成框架 COPYRIGHT 2010 @ www.uur.cn
+		</div>
+	</div>
+	</div>
+</body>
+</html>

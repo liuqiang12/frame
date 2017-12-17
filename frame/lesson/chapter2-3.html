@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	这里演示第三种盒子：box3。先看代码：
+<textarea class="code">
+<div class="box2" panelWidth="300" panelHeight="200"  panelTitle="最新消息"></div>
+</textarea>
+<pre></pre>
+	效果如下。这种盒子适合放一些列表形式的内容。
+	<div class="box3" panelWidth="300" panelHeight="200"  panelTitle="最新消息"></div>
+	<br /><br />还可通过参数实现不同的配置。参数如下：<br />
+	<table class="tableStyle">
+	<tr>
+		<th>参数名</th><th>参数说明</th>
+	</tr>
+	<tr>
+		<td>panelWidth</td><td> 盒子宽度，可以是数值或百分比。默认100%</td>
+	</tr>
+	<tr>
+		<td>panelHeight</td><td>  盒子高度，只能是数值。默认自适应内容</td>
+	</tr>
+	<tr>
+		<td>panelTitle</td><td> 盒子标题 默认为空</td>
+	</tr>
+	<tr>
+		<td>overflow</td><td> 设置是否出现滚动条。当设置高度时该参数生效。默认为hidden即不出现滚动条。当为auto时出现滚动条</td>
+	</tr>
+	<tr>
+		<td>showStatus</td><td> 是否显示“更多”标识，默认为false，不显示。为true则显示“更多>>”</td>
+	</tr>
+	<tr>
+		<td>panelUrl</td><td>点击“更多>>”的链接地址。默认为"#"</td>
+	</tr>
+	<tr>
+		<td>panelTarget</td><td>点击“更多>>”新页面打开方式。默认值"_self"在本页打开。当设为"_blank"则在新页面打开</td>
+	</tr>
+	<tr>
+		<td>statusText</td><td>自定义右上方的文字内容。默认显示为“更多>>”。当statusText值为"收缩"时会具有和box2一样的收缩功能</td>
+	</tr>
+</table>
+	<br /><br />下面代码实现了一个宽度80%、高度自适应的盒子,显示“更多”标识，点击后在新窗口打开页面。
+	<div class="box3" panelWidth="80%" panelTitle="最新消息" showStatus="true" panelUrl="../lesson/chapter1-1.html" panelTarget="_blank">
+		内容区域<br />内容区域<br />内容区域<br />
+		内容区域<br />内容区域<br />内容区域<br />
+	</div>
+	代码如下：
+<textarea class="code">
+<div class="box3" panelWidth="80%" panelTitle="最新消息" showStatus="true" 
+panelUrl="../lesson/chapter1-1.html" panelTarget="_blank">
+	内容区域<br />内容区域<br />内容区域<br />内容区域<br />内容区域<br />内容区域<br />
+	内容区域<br />内容区域<br />内容区域<br />内容区域<br />内容区域<br />内容区域<br />
+</div>
+</textarea>
+<pre></pre>
+	
+	<script>
+		function openWin(){
+			top.Dialog.open({URL:"lesson/chapter2-4-content1.html",Title:"文章列表"});
+		}
+	</script>
+	<br /><br />panelUrl中可以通过写一下JS语句实现点击后调用脚本方法。注意，此时不要设置panelTarget。例如：
+	<div class="box3" panelWidth="400" panelTitle="最新消息" showStatus="true" panelUrl="javascript:openWin()">
+		内容区域<br />内容区域<br />内容区域<br />
+		内容区域<br />内容区域<br />内容区域<br />
+	</div>
+	代码如下：
+<textarea class="code">
+<div class="box3" panelWidth="400" panelTitle="最新消息" showStatus="true" panelUrl="javascript:openWin()">
+	内容区域<br />内容区域<br />内容区域<br />
+	内容区域<br />内容区域<br />内容区域<br />
+</div>
+</textarea>
+<pre></pre>
+	在panelUrl调用JS方法弹出窗口
+<textarea class="code">
+function openWin(){
+	top.Dialog.open({URL:"lesson/chapter2-4-content1.html",Title:"文章列表"});
+}
+</textarea>
+<pre></pre>
+关于弹出窗口做法请参考”提示与弹窗>>弹出窗口“相关内容。
+
+<br /><br />通过设置statusText可自定义右上角的文字。设置了statusText右上角自动会显示文字，可以不必再设置showStatus="true"。
+<br />如果设置statusText="收缩"则会具有和box2一样的收缩功能。如下所示：
+	<div class="box3" panelWidth="400" panelTitle="最新消息" statusText="收缩">
+		内容区域<br />内容区域<br />内容区域<br />
+		内容区域<br />内容区域<br />内容区域
+	</div>
+	代码如下：
+<textarea class="code">
+<div class="box3" panelWidth="400" panelTitle="最新消息" statusText="收缩">
+	内容区域<br />内容区域<br />内容区域<br />
+	内容区域<br />内容区域<br />内容区域
+</div>
+</textarea>
+<pre></pre>
+
+	
+	
+</div>						
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

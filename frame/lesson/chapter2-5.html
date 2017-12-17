@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	这里演示第四种盒子：box4。先看代码：
+<textarea class="code">
+<div class="box4" panelWidth="300" panelHeight="200"  panelTitle="控制面板"></div>
+</textarea>
+<pre></pre>	
+
+	效果如下：
+	<div class="box4" panelWidth="300" panelHeight="200"  panelTitle="控制面板"></div>
+	
+	在某些皮肤中这种盒子样子与box2类似（为了统一风格）。<br />
+	box4没有收缩功能，也没有右上角标识。不过集成了导航效果。
+<table class="tableStyle">
+	<tr>
+		<th>参数名</th><th>参数说明</th>
+	</tr>
+	<tr>
+		<td>panelWidth</td><td> 盒子宽度，可以是数值或百分比。默认100%</td>
+	</tr>
+	<tr>
+		<td>panelWidth</td><td>  盒子高度，只能是数值。默认自适应内容</td>
+	</tr>
+	<tr>
+		<td>panelTitle</td><td>  盒子标题 默认为空</td>
+	</tr>
+	<tr>
+		<td>noTitle</td><td>是否隐藏头部 默认为false</td>
+	</tr>
+</table>	
+
+box4中使用li效果如下：
+<div class="box4" panelWidth="200" panelTitle="导航菜单">
+	<ul>
+	<li><a href="javascript:;">一级栏目1</a></li>
+	<li><a href="javascript:;">一级栏目2</a></li>
+	<li><a href="javascript:;">一级栏目3</a></li>
+	<li><a href="javascript:;">一级栏目4</a></li>
+	<li><a href="javascript:;">一级栏目5</a></li>
+	</ul>
+</div>
+代码：
+<textarea class="code">
+<div class="box4" panelWidth="200" panelTitle="导航菜单">
+	<ul>
+	<li><a href="javascript:;">一级栏目1</a></li>
+	<li><a href="javascript:;">一级栏目2</a></li>
+	<li><a href="javascript:;">一级栏目3</a></li>
+	<li><a href="javascript:;">一级栏目4</a></li>
+	<li><a href="javascript:;">一级栏目5</a></li>
+	</ul>
+</div>
+</textarea>
+<pre></pre>	
+关于实现点击后也有效果等实现参照“导航与布局>>二级纵向导航”。<br />
+设置box4的noTitle="true"后效果如下：
+<div class="box4" panelWidth="200" panelHeight="100" noTitle="true">
+</div>
+适合有二级标题的情况，效果如下：
+<div class="box4" panelWidth="200" noTitle="true">
+	<div class="subtitle"><div class="subtitle_con">一级栏目1</div></div>
+	<ul>
+	<li><a href="javascript:;">二级栏目1</a></li>
+	<li><a href="javascript:;">二级栏目2</a></li>
+	<li><a href="javascript:;">二级栏目3</a></li>
+	</ul>
+	<div class="subtitle"><div class="subtitle_con">一级栏目2</div></div>
+	<ul>
+	<li><a href="javascript:;">二级栏目4</a></li>
+	<li><a href="javascript:;">二级栏目5</a></li>
+	<li><a href="javascript:;">二级栏目6</a></li>
+	</ul>
+</div>
+代码如下：
+<textarea class="code">
+<div class="box4" panelWidth="200" noTitle="true">
+	<div class="subtitle"><div class="subtitle_con">一级栏目1</div></div>
+	<ul>
+	<li><a href="javascript:;">二级栏目1</a></li>
+	<li><a href="javascript:;">二级栏目2</a></li>
+	<li><a href="javascript:;">二级栏目3</a></li>
+	</ul>
+	<div class="subtitle"><div class="subtitle_con">一级栏目2</div></div>
+	<ul>
+	<li><a href="javascript:;">二级栏目4</a></li>
+	<li><a href="javascript:;">二级栏目5</a></li>
+	<li><a href="javascript:;">二级栏目6</a></li>
+	</ul>
+</div>
+</textarea>
+<pre></pre>	
+			
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

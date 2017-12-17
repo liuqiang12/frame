@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+
+	<div class="box2"  panelTitle="使用EMBED">
+基本语法： 
+<textarea class="code">
+<EMBED SRC="音乐文件地址"/>  
+</textarea>
+<pre></pre>	
+
+常用属性如下：  <br />
+SRC="FILENAME" 设定音乐文件的路径  <br />
+AUTOSTART=TRUE/FALSE 是否要音乐文件传送完就自动播放，TRUE是要，FALSE是不要，默认为FALSE  <br />
+LOOP=TRUE/FALSE 设定播放重复次数，LOOP=6表示重复6次，TRUE表示无限次播放，FALSE播放一次即停止。  <br />
+STARTIME="分:秒" 设定乐曲的开始播放时间，如20秒后播放写为STARTIME=00:20  <br />
+VOLUME=0-100 设定音量的大小。如果没设定的话，就用系统的音量。<br />  
+WIDTH HEIGHT 设定控制面板的大小  <br />
+HIDDEN=TRUE 隐藏控制面板  <br />
+CONTROLS=CONSOLE/SMALLCONSOLE 设定控制面板的样子  <br />
+例：出现控制面板，可以控制它的开与关，还可以调节音量的大小。 <br />
+<EMBED SRC="message.mp3" loop="true" width="145" height="20" AUTOSTART="false" />
+<br />代码： 
+<textarea class="code">
+<EMBED SRC="message.mp3" loop="true" width="145" height="20" AUTOSTART="false"/>
+</textarea>
+<pre></pre>
+另外还可设置type="audio/x-pn-realaudio-plugin"来使用real播放器插件。		 	
+	</div>
+	
+	<div class="box2"  panelTitle="使用bgsound">
+基本语法： 
+<textarea class="code">
+<bgsound src="音乐文件地址" loop=#/> 
+</textarea>
+<pre></pre>			　	 
+　#=循环数  <br />
+　注：这种背景音乐格式，只有在IE浏览器中才可以听到。一般用来插入wav wma mid等格试的音乐。  
+	</div>
+	
+	<div class="box2"  panelTitle="使用object视频播放器">		　		
+播放音频代码： 
+<textarea class="code">
+<object classid="clsid:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="400" height="64">
+<param name="autostart" value="0" />
+<param name="url" value="http://192.168.31.30:8080/frame/images/demo/a.mp3" />
+<embed src="http://192.168.31.30:8080/frame/images/demo/a.mp3" autostart="0" 
+type="video/x-ms-wmv" width="400" height="64"></embed>
+</object>
+</textarea>
+<pre></pre>	
+文件地址不能是本地<br />
+如果要隐藏播放器，把width和height的数值改成0或者1就可以了。<br />
+播放视频代码
+<textarea class="code">
+<object classid="clsid:6bf52a52-394a-11d3-b153-00c04f79faa6" width="520" height="390">
+<param name="autostart" value="0">
+<param name="url" value="http://dspdn/uploadFiles/video/1275453044329.mpg">
+<embed autostart="false" src="http://dspdn/uploadFiles/video/1275453044329.mpg" type="video/x-ms-wmv" 
+width="520" height="390" controls="imagewindow" console="cons"></embed>
+</object>
+</textarea>
+<pre></pre>	
+	</div>
+	
+		
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

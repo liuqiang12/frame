@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--浮动面板start-->
+<script type="text/javascript" src="../js/attention/floatPanel.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#floatPanel-1").floatPanel({})
+		
+		$("#floatPanel-2").floatPanel({
+			width:300,
+			beforeClickText:"展开查询面板",
+			afterClickText:"收回查询面板",
+			animatefirst:false,
+			direction:"tl"
+		})
+		
+		 $("#floatPanel-3").floatPanel({
+			width:300,
+			animatefirst:false,
+			direction:"tr",
+			depth:710
+		})
+		
+		$("#floatPanel-4").floatPanel({
+			width:300,
+			animatefirst:false,
+			direction:"mr"
+		})
+		
+		$("#floatPanel-5").floatPanel({
+			animatefirst:false,
+			direction:"ml",
+			width:260,
+			duration:1000
+		})
+		
+		$("#floatPanel-7").floatPanel({
+			direction:"bc",
+			animatefirst:false,
+			width:240
+		})
+		
+		$("#floatPanel-6").floatPanel({
+			direction:"bl",
+			width:240,
+			init:"show",
+			animatefirst:false,
+			beforeClickText:"关闭面板",
+			afterClickText:"打开面板"
+		})
+		
+		
+			
+		$("#floatPanel-8").floatPanel({
+			width:300,
+			direction:"br",
+			init:"show",
+			iframe:"chapter3-4-content1.html",
+			beforeClickText:"iframe模式",
+			afterClickText:"iframe模式"
+		})	
+	})
+</script>
+<!--浮动面板end-->
+<body>
+	<div id="scrollContent">
+		
+	<div id="floatPanel-1">这是第一个面板，<br/>所有参数均采用默认，<br/>效果是宽为400靠上水平居中的窗口，<br/>并且当页面初始时会以动画的方式收回用来提醒用户这里有个浮动面板。</div>
+	<div id="floatPanel-2">这是第二个面板，<br/>定义了宽度为300，<br/>水平靠左，<br/>自定义了按钮的文字，<br/>并且当页面初始时不会以动画的方式收回</div>
+	<div id="floatPanel-3">这是第三个面板，<br/>顶部靠右。<br/>depth设为710大于第四个面板的默认depth<br/>所以第三个面板在第四个之上。</div>
+	<div id="floatPanel-4">这是第四个三个面板，<br/>中间靠右。<br/>正常情况第四个面板在第三个面板之后生成的，<br/>则第四个会盖住第三个。<br/>但是由于第三个面板的depth大于第四个，<br/>所以第三个面板在第四个之上。<br/>另外对于左右展开的面板，<br/>文字内容不能太少否则按钮高度大于面板高度会不美观。</div>
+	<div id="floatPanel-5">这是第五个三个面板，中间靠左。<br/>自定义了面板伸缩的时间为1秒<br/>对于左右展开的面板，文字内容不能太少，否则按钮高度大于面板高度会不美观。<br/>如果文字确实太少则用换行符补上<br/><br/><br/><br/></div>
+	<div id="floatPanel-6">这是第六个三个面板，居下靠左。<br/>设置了初始化面板为打开状态<br/>对于这种情况需要自定义beforeClickText和afterClickText<br/>因为默认的文字是相反的。<br/>如果animatefirst为true时初始时会以动画形式展开。</div>
+	<div id="floatPanel-7">这是第七个面板，<br/>下方居中。<br/>depth设为21大于第四个面板的默认depth<br/>所以第三个面板在第四个之上。</div>
+	<div id="floatPanel-8"></div>
+	</div>
+</body>
+</html>

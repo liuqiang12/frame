@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--强制换行start-->
+<script type="text/javascript" src="../js/method/breakly.js"></script>
+<!--强制换行end-->
+<body>
+	<div id="scrollContent">
+		<div class="box1">
+		一般情况下只要定好文字所在容器的宽度文字就会折行，如下面：
+		<div style="border:solid 1px #cccccc;width:200px;">文字折行测试文字折行测试文字折行测试文字折行测试文字折行测试</div>
+		对于表格的情况,因为本框架中class="tableStyle"表格的td默认加了word-wrap: normal;word-break: keep-all，在ie中不会换行，在firefox和chrome中可以换行。效果如下：
+		<table class="tableStyle">
+			<tr><th width="20%">第一列</th><th>第二列</th></tr>
+			<tr><td>文字折行测试文字折行测试文字折行测试文字折
+			行测试文字折行测试</td><td></td></tr>
+		</table>
+		那么对td中的文字加上span style="word-wrap: break-word;word-break: break-all;"就可以了，代码如下：
+<textarea class="code">
+<table class="tableStyle">
+	<tr><th width="20%">第一列</th><th>第二列</th></tr>
+	<tr><td><span style="word-wrap: break-word;word-break: break-all;">文字折行测试文字折行测试
+	文字折行测试文字折行测试文字折行测试</span></td><td></td></tr>
+</table>
+</textarea>
+<pre></pre>	
+
+效果：
+		<table class="tableStyle">
+			<tr><th width="20%">第一列</th><th>第二列</th></tr>
+			<tr><td><span style="word-wrap: break-word;word-break: break-all;">文字折行测试文字折行测试
+			文字折行测试文字折行测试文字折行测试</span></td><td></td></tr>
+		</table>
+		</div>
+		
+		<div class="box1">
+		但对于一种特殊情况：文字中含有很长英文的时候。不做任何处理效果：
+		<div style="border:solid 1px #cccccc;width:200px;">文字折行测试：当文字中含有很长英文的情况：
+		akdiwlkjdklsijkjklajkjfkdfjdkajksdjkjkfjdskdfdkjdkjdfksdjkjkfjdskdfdkjdkjdf</div>
+		对其加上span style="word-wrap: break-word;word-break: break-all;" div容器折行没有问题。效果如下：
+		<div style="border:solid 1px #cccccc;width:200px;word-wrap: break-word;word-break: break-all;">文字折行测试：当文字中含有很长英文的情况：
+		akdiwlkjdklsijkjklajkjfkdfjdkajksdjkjkfjdskdfdkjdkjdfksdjkjkfjdskdfdkjdkjdf</div>
+		但对于表格ie和chrom可以折行，firefox仍然不能折行
+		<table class="tableStyle">
+			<tr><th width="20%">第一列</th><th>第二列</th></tr>
+			<tr><td><span style="word-wrap: break-word;word-break: break-all;">文字折行测试：当文字中含有很长英文的情况：
+			akdiwlkjdklsijkjklajkjfkdfjdkajksdjkjkfjdskdfdkjdkjdfksdjkjkfjdskdfdkjdkjdf</span></td><td></td></tr>
+		</table>
+		</div>
+		
+		<div class="box1">
+		这时的解决办法是：首先引入强制换行脚本jquery.breakly.js
+<textarea class="code">
+<script type="text/javascript" src="../js/method/breakly.js"></script>
+</textarea>
+<pre></pre>
+			
+		并对文字加span class="text_break"
+<textarea class="code">
+<table class="tableStyle">
+	<tr><th width="20%">第一列</th><th>第二列</th></tr>
+	<tr>
+		<td><span class="text_break">文字折行测试：当文字中含有很长英文的情况：
+			akdiwlkjdklsijkjklajkjfkdfjdkajksdjkjkfjdskdfdkjdkjdfksdjkjkfjdskdfdkjdkjdf</span></td>
+		<td></td>
+	</tr>
+</table>
+</textarea>
+<pre></pre>
+
+		FireFox下变得正常
+		<table class="tableStyle">
+			<tr><th width="20%">第一列</th><th>第二列</th></tr>
+			<tr><td><span class="text_break">文字折行测试：当文字中含有很长英文的情况：
+			akdiwlkjdklsijkjklajkjfkdfjdkajksdjkjkfjdskdfdkjdkjdfksdjkjkfjdskdfdkjdkjdf</span></td><td></td></tr>
+		</table>
+		</div>
+	</div>
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

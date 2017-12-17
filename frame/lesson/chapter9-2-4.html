@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+<div class="box2" panelWidth="800" panelTitle="效果">	
+	<div style="width:200px;">
+		<div class="list_menu2">
+			<dt class="parent"><a><span>一级栏目1</span></a></dt>
+			<ul class="child">
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目1</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目2</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目3</span></a></dt>
+			</ul>
+			<dt class="parent"><a><span>一级栏目2</span></a></dt>
+			<ul class="child">
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目4</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目5</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目6</span></a></dt>
+			</ul>	
+			<dt><a><span>一级栏目3</span></a></dt>
+			<dt><a><span>一级栏目4</span></a></dt>	
+			<dt class="parent"><a><span>一级栏目5</span></a></dt>
+			<ul class="child">
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目7</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目8</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目9</span></a></dt>
+			</ul>
+		</div>
+	</div>
+	二级抽屉式导航宽度自适应。无需额外引入脚本。同一个页可以有多个这种导航。如果栏目不超过二级推荐使用（只有一级的话也可以用）。
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="用法">	
+	代码如下：
+<textarea class="code">
+<div style="width:200px;">
+	<div class="list_menu2">
+		<dt class="parent"><a><span>一级栏目1</span></a></dt>
+		<ul class="child">
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目1</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目2</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目3</span></a></dt>
+		</ul>
+		<dt class="parent"><a><span>一级栏目2</span></a></dt>
+		<ul class="child">
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目4</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目5</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目6</span></a></dt>
+		</ul>	
+		<dt><a><span>一级栏目3</span></a></dt>
+		<dt><a><span>一级栏目4</span></a></dt>	
+		<dt class="parent"><a><span>一级栏目5</span></a></dt>
+		<ul class="child">
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目7</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目8</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目9</span></a></dt>
+		</ul>
+	</div>
+</div>
+</textarea>
+<pre></pre>	
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="全部显示">
+	默认点击一项其他项自动收回，还可以让其默认全部展开：添加showAll="true"属性即可。效果如下：
+	<div style="width:100px;">
+		<div class="list_menu2" showAll="true">
+			<dt class="parent"><a><span>一级栏目1</span></a></dt>
+			<ul class="child">
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目1</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目2</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目3</span></a></dt>
+			</ul>
+			<dt class="parent"><a><span>一级栏目2</span></a></dt>
+			<ul class="child">
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目4</span></a></dt>
+				<dt><a href="javascript:;" target="frmright"><span>二级栏目5</span></a></dt>
+			</ul>	
+		</div>
+	</div>
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="用法">	
+代码：
+<textarea class="code">
+<div style="width:100px;">
+	<div class="list_menu2" showAll="true">
+		<dt class="parent"><a><span>一级栏目1</span></a></dt>
+		<ul class="child">
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目1</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目2</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目3</span></a></dt>
+		</ul>
+		<dt class="parent"><a><span>一级栏目2</span></a></dt>
+		<ul class="child">
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目4</span></a></dt>
+			<dt><a href="javascript:;" target="frmright"><span>二级栏目5</span></a></dt>
+		</ul>	
+	</div>
+</div>
+</textarea>
+<pre></pre>	
+</div>
+二级抽屉导航应用示例见框架的纵向标签式导航结构。 
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

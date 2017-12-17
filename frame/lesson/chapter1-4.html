@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+	<div id="scrollContent">	
+		<div class="box2" panelTitle="css库使用帮助">
+	简单说来css库就是一些已经写好的css，要实现网页外观上的调整只要调用class="xxx"就可以了，不必再写css。<br />
+	充分利用css库能够很大程度地提高效率。例如要实现一段文字显示为红色，字号为15px，加粗并且向左偏移10px，一般的做法是，先写html：
+<textarea class="code">
+<span class="style1">要处理的文本</span>
+</textarea>
+<pre></pre>		
+	然后再写css
+<textarea class="code">
+.style1{padding-left:5px;color:red;font-size:15px;font-weight:bold;}
+</textarea>
+<pre></pre>
+如果使用css库，则只要
+<textarea class="code">
+<span class="padding_left10 red font_bold font_15">要处理的文本</span>
+</textarea>
+<pre></pre>	
+效果：<span class="padding_left10 red font_bold font_15">要处理的文本</span><br />
+css样式库可以用在任何容器标签上。一般来讲如果只对文字做外观的操作，使用span标签，要设置一个容器的宽高、定位、对齐等用div标签。
+		</div>
+	
+	<div class="box2" panelTitle="控制基本布局、宽高、颜色、字号、缩进等（basic.css）">	
+		<table class="tableStyle">
+			<tr><th colspan="2">浮动</th></tr>
+			<tr><td>float_left</td><td>向左浮动</td></tr>
+			<tr><td>float_right</td><td>向右浮动</td></tr>
+			<tr><td>clear</td><td>清除浮动（设置了浮动后最后要清除浮动，否则后面的元素也会受到浮动影响）</td></tr>
+			<tr><th colspan="2">对齐</th></tr>
+			<tr><td>ali01</td><td>水平靠左</td></tr>
+			<tr><td>ali02</td><td>水平居中</td></tr>
+			<tr><td>center</td><td>水平居中(FireFox下有些情况ali02无法实现居中，这时用center)</td></tr>
+			<tr><td>ali03</td><td>水平靠右</td></tr>
+			<tr><td>ver01</td><td>垂直靠上</td></tr>
+			<tr><td>ver02</td><td>垂直居中</td></tr>
+			<tr><td>ver03</td><td>垂直靠下</td></tr>
+			<tr><th colspan="2">基本宽高</th></tr>
+			<tr><td>width100</td><td>宽度100%</td></tr>
+			<tr><td>height100</td><td>高度100%</td></tr>
+			<tr><td>minHeight_100</td><td>最小高度为100px</td></tr>
+			<tr><td>minHeight_150</td><td>最小高度为150px</td></tr>
+			<tr><td>minHeight_200</td><td>最小高度为200px</td></tr>
+			<tr><th colspan="2">行高</th></tr>
+			<tr><td>lineHeight100</td><td>行高100%</td></tr>
+			<tr><td>lineHeight150</td><td>行高150%</td></tr>
+			<tr><td>lineHeight200</td><td>行高200%</td></tr>
+			<tr><th colspan="2">边框</th></tr>
+			<tr><td>border_gray</td><td>灰色1像素边框</td></tr>
+			<tr><td>border_red</td><td>红色1像素边框</td></tr>
+			<tr><td>border_blue</td><td>蓝色1像素边框</td></tr>
+			<tr><td>border_green</td><td>绿色1像素边框</td></tr>
+			<tr><td>border_black</td><td>黑色1像素边框</td></tr>
+			<tr><td>border_white</td><td>白色1像素边框</td></tr>
+			<tr><th colspan="2">背景颜色</th></tr>
+			<tr><td>white_bg</td><td>白色背景</td></tr>
+			<tr><td>trans_bg</td><td>背景透明</td></tr>
+			<tr><th colspan="2">字符间距</th></tr>
+			<tr><td><span class="text_slice">letter_space0、letter_space1到letter_space5</span></td><td>字符间距为0em到5em，1em为一个12像素字的宽度</td></tr>
+			<tr><th colspan="2">文字颜色（设为链接后也不会变色）</th></tr>
+			<tr><td>black</td><td>文字颜色为黑色</td></tr>
+			<tr><td>white</td><td>文字颜色为白色</td></tr>
+			<tr><td>red</td><td>文字颜色为红色</td></tr>
+			<tr><td>blue</td><td>文字颜色为蓝色</td></tr>
+			<tr><th colspan="2">字体大小</th></tr>
+			<tr><td>font_12</td><td>字体大小为12px</td></tr>
+			<tr><td>font_13</td><td>字体大小为13px</td></tr>
+			<tr><td>font_14</td><td>字体大小为14px</td></tr>
+			<tr><td>font_15</td><td>字体大小为15px</td></tr>
+			<tr><td>font_20</td><td>字体大小为20px</td></tr>
+			<tr><td>font_25</td><td>字体大小为25px</td></tr>
+			<tr><th colspan="2">字体粗细</th></tr>
+			<tr><td>font_normal</td><td>文字强制不加粗</td></tr>
+			<tr><td>font_bold</td><td>文字加粗</td></tr>
+			<tr><th colspan="2">文字缩进</th></tr>
+			<tr><td><span class="text_slice">font_ind0、font_ind1到font_ind50</span></td><td>文字缩进，从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><th colspan="2">设置两个水平排列的元素的间距（代替空格）</th></tr>
+			<tr><td><span class="text_slice">spacer0、spacer1到spacer50</span></td><td>元素间距，从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)。用法见下面：</td></tr>
+			<tr><td colspan="2">
+<textarea class="code">
+<input type="button" value=" 确 定 " style="float:left"/><div class="spacer10"></div>
+<input type="button" value=" 取 消 " style="float:left"/><div class="clear"></div>
+</textarea>
+<pre></pre>	
+效果：<br />
+<input type="button" value=" 确 定 " style="float:left"/><div class="spacer10"></div>
+<input type="button" value=" 取 消 " style="float:left"/><div class="clear"></div>
+				</td></tr>
+			<tr><th colspan="2">其他</th></tr>
+			<tr><td>text_slice</td><td>截取文字出省略号，使用方法参考“文本>>文本单行截取”相关内容</td></tr>
+			<tr><td>text_break</td><td>强制文字折行，使用方法参考“常用功能与解决方案>>强制文字折行”相关内容</td></tr>
+			<tr><td>imgFix</td><td>大图修正，使用方法参考“常用功能与解决方案>>大图等比例缩小”相关内容</td></tr>
+			<tr><td>hand</td><td>强制鼠标显示为手型</td></tr>
+			<tr><td>underLine</td><td>文字有下划线</td></tr>
+		</table>
+	</div>
+	
+	<div class="box2" panelTitle="控制定位（position.css）">
+		<table class="tableStyle">
+			<tr><th colspan="2">padding定位（在可能的情况下尽量用padding定位而不用margin定位）</th></tr>
+			<tr><td><span class="text_slice">padding0、padding1到padding50</span></td><td>设置该容器的子内容距该容器的偏移距离，从上、右、下、左4个方向作同样的偏移。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">padding_top0、padding_top1到padding_top50</span></td><td>设置该容器的内容距该容器的上方偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">padding_right0、padding_right1到padding_right50</span></td><td>设置该容器的内容距该容器的右方偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">padding_bottom0、padding_bottom1到padding_bottom50</span></td><td>设置该容器的内容距该容器的下方偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">padding_left0、padding_left1到padding_left50</span></td><td>设置该容器的内容距该容器的左方偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><th colspan="2">margin定位</th></tr>
+			<tr><td><span class="text_slice">margin0、margin1到margin50</span></td><td>设置该容器距父容器的偏移距离，从上、右、下、左4个方向作同样的偏移。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">margin_top0、margin_top1到margin_top50</span></td><td>设置该容器距父容器上方的偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">margin_right0、margin_right1到margin_right50</span></td><td>设置该容器距父容器右方的偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">margin_bottom0、margin_bottom1到margin_bottom50</span></td><td>设置该容器距父容器下方的偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+			<tr><td><span class="text_slice">margin_left0、margin_left1到margin_left50</span></td><td>设置该容器距父容器左方的偏移距离。从0px,1px到10px,15px,20px到50px(10以后每个间隔5px)</td></tr>
+		</table>
+	</div>
+		
+		
+	</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

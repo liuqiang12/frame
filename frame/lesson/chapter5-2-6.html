@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--滑动条start-->
+<script type="text/javascript" src="../js/form/slider/jquery.dependClass.js"></script>
+<script type="text/javascript" src="../js/form/slider/jquery.slider.js"></script>
+<script>
+$(function(){
+	jQuery("#SliderSingle").slider({
+	    from: 5,
+	    to: 50,
+	    step: 2.5,
+	    round: 1,
+	    dimension: '&nbsp;$'
+	});
+	jQuery("#Slider1").slider({
+	    from: 1,
+	    to: 100,
+	    step: 5,
+	    smooth: true,
+	    round: 0,
+	    dimension: "&nbsp;%"
+	});
+})
+</script>
+<!--滑动条end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelWidth="800" panelTitle="基本用法">
+	首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/form/slider/jquery.dependClass.js"></script>
+<script type="text/javascript" src="../js/form/slider/jquery.slider.js"></script>
+</textarea>
+<pre></pre>	
+
+	HTML部分
+<textarea class="code">
+<div style="width: 400px;">
+  <input id="SliderSingle" type="slider" name="price" value="20" />
+</div>
+</textarea>
+<pre></pre>	
+
+	JS部分
+<textarea class="code">
+jQuery("#SliderSingle").slider({
+    from: 5,
+    to: 50,
+    step: 2.5,
+    round: 1,
+    dimension: '&nbsp;$'
+});
+</textarea>
+<pre></pre>
+
+	<div style="width: 400px;">
+      <input id="SliderSingle" type="slider" name="price" value="20" />
+    </div>
+	
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="双向滑动条">
+	如果input的value设为两个值，则会变为双向滑动条，效果如下：<br /><br />
+	 <div style="width: 400px;">
+	  <input id="Slider1" type="slider" name="price" value="20;50" />
+	 </div>
+	 <br />
+	 HTML部分的代码：
+<textarea class="code">
+<div style="width: 400px;">
+	<input id="Slider1" type="slider" name="price" value="20;50" />
+</div>
+</textarea>
+<pre></pre>	
+
+	JS代码：
+<textarea class="code">
+jQuery("#Slider1").slider({
+    from: 1,
+    to: 100,
+    step: 5,
+    smooth: true,
+    round: 0,
+    dimension: "&nbsp;%"
+});
+</textarea>
+<pre></pre>		
+</div>
+	 
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

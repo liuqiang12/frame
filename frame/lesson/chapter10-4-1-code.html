@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<script>
+	$(function(){
+		showProgressBar();
+	})
+</script>
+<body>
+	HTML部分：
+<textarea class="code">
+<div id="navigation">
+	<div class="list_menu2" showAll="true">
+		<dt class="parent"><a href="#section1"><span>RIA与Flex</span></a></dt>
+		<ul class="child">
+			<dt><a href="#section1b"><span>RIA概述</span></a></dt>
+			<dt><a href="#section1c"><span>FLex概述</span></a></dt>
+		</ul>
+		<dt class="parent"><a href="#section2"><span>Flex特点1</span></a></dt>
+		<ul class="child">
+			<dt><a href="#section2b"><span>支持完全自定义皮肤</span></a></dt>
+			<dt><a href="#section2c"><span>与Flash无缝衔接</span></a></dt>
+		</ul>	
+		<dt class="parent"><a href="#section3"><span>Flex特点2</span></a></dt>
+		<ul class="child">
+			<dt><a href="#section3b"><span>强大的数据展示</span></a></dt>
+			<dt><a href="#section3c"><span>丰富的表现力</span></a></dt>
+		</ul>
+		<dt class="parent"><a href="#section4"><span>Flex特点3</span></a></dt>	
+		<ul class="child">
+			<dt><a href="#section4b"><span>破平面限制</span></a></dt>
+			<dt><a href="#section4c"><span>良好数据传递和处理</span></a></dt>
+		</ul>
+	</div>
+</div>
+
+<div id="content">
+	<div class="section">
+		<ul>
+			<li class="sub" id="section1">
+				<h2>RIA与Flex</h2>
+				<p>内容部分</p>
+				<a href="#section1b" class="next">&gt;&gt;</a>
+			</li>
+			<li class="sub" id="section1b">
+				<h2>RIA概述</h2>
+				<p>内容部分</p>
+				<a href="#section1" class="prev">&lt;&lt;</a>
+				<a href="#section1c" class="next">&gt;&gt;</a>					
+			</li>
+			<li class="sub" id="section1c">
+				<h2>FLex概述</h2>
+				<p>内容部分</p>
+				<a href="#section1b" class="prev">&lt;&lt;</a>
+			</li>				
+		</ul>
+	</div>
+	<div class="section">
+		<ul>
+			<li class="sub" id="section2" >
+				<h2>Flex特点1</h2>
+				<p>内容部分</p>
+				<a href="#section2b" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section2b">
+				<h2>支持完全自定义皮肤</h2>
+				<p>内容部分</p>
+				<a href="#section2" class="prev">&lt;&lt;</a>
+				<a href="#section2c" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section2c">
+				<h2>与Flash无缝衔接</h2>
+				<p>内容部分</p>
+				<a href="#section2b" class="prev">&lt;&lt;</a>
+			</li>
+		</ul>
+	</div>
+	<div class="section">
+		<ul>
+			<li class="sub" id="section3">
+				<h2>Flex特点2</h2>
+				<p>内容部分</p>
+				<a href="#section3b" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section3b">
+				<h2>强大的数据展示</h2>
+				<p>内容部分</p>
+				<a href="#section3" class="prev">&lt;&lt;</a>
+				<a href="#section3c" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section3c">
+				<h2>丰富的表现力</h2>
+				<p>内容部分</p>
+				<a href="#section3b" class="prev">&lt;&lt;</a>
+			</li>								
+		</ul>
+	</div>
+
+	<div class="section">
+		<ul>
+			<li class="sub" id="section4">
+				<h2>Flex特点3</h2>
+				<p>内容部分</p>
+				<a href="#section4b" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section4b">
+				<h2>突破平面限制</h2>
+				<p>内容部分</p>
+				<a href="#section4" class="prev">&lt;&lt;</a>
+				<a href="#section4c" class="next">&gt;&gt;</a>	
+			</li>
+			<li class="sub" id="section4c">
+				<h2>良好数据传递和处理</h2>
+				<p>内容部分</p>
+				<a href="#section4b" class="prev">&lt;&lt;</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</textarea>
+<pre></pre>
+
+添加CSS自定义样式
+<textarea class="code">
+<style>
+#content{
+	overflow:hidden;
+	width:630px;
+	background-color:white;
+	position:relative;
+	height:400px;
+	float:left;
+	border:solid 1px #ccc;
+}
+#navigation{
+	float:left;
+	width:150px;
+}
+.section{
+	width:1900px;
+	position:relative;
+}
+
+.section .sub{
+	position:relative;
+	float:left;
+	padding:9px 21px 42px 45px;
+	width:567px;
+	height:352px;
+}
+.section .sub p{
+	width:550px;
+}
+.section .next, .section .prev{
+	font-size:18px;
+	position:absolute;
+	bottom:15px;
+	letter-spacing:-2px;
+}
+.section .next{
+	right:30px;
+}
+.section .prev{
+	left:30px;
+}
+</style>
+</textarea>
+<pre></pre>
+	这时已经可以进行锚点链接了，只是没有平滑效果。<br />
+
+	引入脚本：
+<textarea class="code">
+<script type='text/javascript' src="../js/scroll/scrollTo.js"></script>
+<script type='text/javascript' src="../js/scroll/localscroll.js"></script>
+</textarea>
+<pre></pre>
+
+	JS代码
+<textarea class="code">
+jQuery(function( $ ){
+	$.localScroll.defaults.axis = 'xy';
+	$.localScroll.hash({
+		target: '#content',
+		queue:true,
+		duration:1500
+	});
+	$.localScroll({
+		target: '#content', 
+		queue:true,
+		duration:1000,
+		hash:true,
+		onBefore:function( e, anchor, $target ){
+		},
+		onAfter:function( anchor, settings ){
+		}
+	});
+});
+</textarea>
+<pre></pre>	
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+		top.Dialog.close();
+	}
+</script>
+<!--代码高亮end-->
+</html>

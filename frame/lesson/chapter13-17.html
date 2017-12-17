@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	当链接中不需要写链接地址时，很多人习惯写上href="#"。但实际上IE浏览器会把href="#"当做锚点链接，从而会导致很多意想之外的问题。最常见的就是当在页面底部点击该链接时，会跳到页面顶部。
+	有时候还会导致页面错位。所以当没有链接地址时，尽量使用href="javascript:;"代替。例如
+<textarea class="code">
+<a href="javascript:;">链接文字</a>
+</textarea>
+<pre></pre>	
+	当链接中需要使用点击事件时，那么即不要使用href="#"也不要使用href="javascript:;"。例如下面两种都是不正确的写法：
+<textarea class="code">
+<a href="javascript:;" onclick="openWin()">链接文字</a>
+</textarea>
+<pre></pre>	
+或者	
+<textarea class="code">
+<a href="#" onclick="openWin()">链接文字</a>
+</textarea>
+<pre></pre>	
+	正确的写法有两种。第一种是去掉href="#"：
+<textarea class="code">
+<a onclick="openWin()">链接文字</a>
+</textarea>
+<pre></pre>	
+	这种方式的onclick中也可直接写函数体内容。例如：
+<textarea class="code">
+<a onclick="top.Dialog.open({URL:'lesson/bug.html',Title:'bug列表'});">链接文字</a>
+</textarea>
+<pre></pre>
+	但是唯一的一个缺点是IE6中如果没有href那么鼠标悬浮在链接时不会有hover效果。<br />
+	另一种方式是函数名写在href中。代码如下：
+<textarea class="code">
+<a href="javascript:openWin()">链接文字</a>
+</textarea>
+<pre></pre>	
+	这样就既有hover效果，又会使点击事件生效。不过只能使用函数名，不能把函数体写在里面。
+	
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

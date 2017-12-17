@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--横向抽屉容器start-->
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+<script type="text/javascript" src="../js/nav/hrzAccordion.js"></script>
+<script>
+$(document).ready(function() {
+	$(".demo").hrzAccordion({
+		openOnLoad:1
+	});
+	$(".demo2").hrzAccordion({
+		eventTrigger:"mouseover", 
+		openOnLoad:1
+		});
+ });
+</script>
+<!--横向抽屉容器end-->
+<body>
+<div id="scrollContent">
+	
+<div class="box2" panelWidth="800" panelTitle="鼠标点击">
+<ul class="demo">
+   <li>内容1</li>
+  <li>
+   内容2
+  </li>
+  <li>
+  	内容3
+  </li>
+  <li>
+  	内容4
+  </li>
+  <li>
+  	内容5
+  </li>
+</ul>
+<br />
+<button  onclick="$('#demoHandle0').click()">开启选项1</button> 
+<button   onclick="$('#demoHandle1').click()">开启选项2</button> 
+<button  onclick="$('#demoHandle2').click()">开启选项3</button> 
+<button   onclick="$('#demoHandle3').click()">开启选项4</button> 
+<button   onclick="$('#test2Handle4').click()">开启选项5</button>
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="用法">
+首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/jquery.easing.js"></script>
+<script type="text/javascript" src="../js/nav/hrzAccordion.js"></script>
+</textarea>
+<pre></pre>	
+HTML部分
+<textarea class="code">
+<ul class="demo">
+   <li>内容1</li>
+  <li>
+   内容2
+  </li>
+  <li>
+  	内容3
+  </li>
+  <li>
+  	内容4
+  </li>
+  <li>
+  	内容5
+  </li>
+</ul>
+<br />
+<button  onclick="$('#demoHandle0').click()">开启选项1</button> 
+<button   onclick="$('#demoHandle1').click()">开启选项2</button> 
+<button  onclick="$('#demoHandle2').click()">开启选项3</button> 
+<button   onclick="$('#demoHandle3').click()">开启选项4</button> 
+<button   onclick="$('#test2Handle4').click()">开启选项5</button>
+</textarea>
+<pre></pre>	
+JS部分
+<textarea class="code">
+$(document).ready(function() {
+	$(".demo").hrzAccordion({
+		openOnLoad:1
+	});
+ });
+</textarea>
+<pre></pre>	
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="鼠标移入">
+<ul class="demo2">
+  <li>
+  内容1
+  </li>
+  <li>
+   内容2
+  </li>
+  <li>
+  	内容3
+  </li>
+  <li><div class="handle"></div>	内容4
+  </li>
+</ul>
+<br />
+<button  onclick="$('#demo2Handle0').trigger('mouseover')">开启选项1</button>  
+<button   onclick="$('#demo2Handle1').trigger('mouseover')">开启选项2</button>  
+<button  onclick="$('#demo2Handle2').trigger('mouseover')">开启选项3</button>  
+<button   onclick="$('#demo2Handle3').trigger('mouseover')">开启选项4</button><br />
+</div>
+
+<div class="box2" panelWidth="800" panelTitle="用法">
+只是JS部分有变
+<textarea class="code">
+$(document).ready(function() {
+	$(".demo").hrzAccordion({
+		eventTrigger:"mouseover", 
+		openOnLoad:1
+		});
+ });
+</textarea>
+<pre></pre>	
+</div>
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

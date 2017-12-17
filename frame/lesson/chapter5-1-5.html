@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--获取所选值方法start-->
+<script>
+	function checkValue(){
+		var msg="";
+		$("#checkboxDemo input[type=checkbox]").each(function(){
+			if($(this).attr("checked")){
+				msg=msg+","+$(this).val()
+			}
+		})
+		if(msg==""){
+			msg="无选择"
+		}
+		top.Dialog.alert(msg);
+	}
+</script>
+<!--获取所选值方法end-->
+<body>
+<div id="scrollContent">
+	<div class="box1" panelWidth="950">
+	<form id="checkboxDemo" class="render">
+		<label for="checkbox-1" >选项1</label><input type="checkbox" id="checkbox-1" value="选项1"/>
+		<label for="checkbox-2">选项2</label><input type="checkbox" id="checkbox-2" value="选项2" checked="checked" />
+		<label for="checkbox-3" >选项3</label><input type="checkbox" id="checkbox-3" value="选项3" />
+		<input type="button" value="查看选中项" onclick="checkValue()"/>
+	</form>
+<br />
+要使用渲染的checkbox需要将checkbox所在容器的class设置为render。<br />
+使用checkbox时推荐使用label标签，将label得for属性指向checkbox的id，这样点击label时也会选中相应的checkbox，提高用户体验。注意label要放在前面。代码如下：
+<textarea class="code">
+<form id="checkboxDemo" class="render">
+	<label for="checkbox-1" >选项1</label><input type="checkbox" id="checkbox-1" value="选项1"/>
+	<label for="checkbox-2">选项2</label>
+	<input type="checkbox" id="checkbox-2" value="选项2" checked="checked" />
+	<label for="checkbox-3" >选项3</label><input type="checkbox" id="checkbox-3" value="选项3" />
+	<input type="button" value="查看选中项" onclick="checkValue()"/>
+</form>
+</textarea>
+<pre></pre>	
+
+	checkValue代码
+<textarea class="code">
+function checkValue(){
+	var msg="";
+	$("#checkboxDemo input[type=checkbox]").each(function(){
+		if($(this).attr("checked")){
+			msg=msg+","+$(this).val()
+		}
+	})
+	if(msg==""){
+		msg="无选择"
+	}
+	top.Dialog.alert(msg);
+}
+</textarea>
+<pre></pre>
+另外渲染过的checkbox与普通的checkbox一样有可以响应onclick事件，但注意不能传递this。
+	</div>
+	
+	<div class="box1" panelWidth="950" >
+	如果不使用label也可以。如下<br />
+<div class="render">	
+	选项1<input type="checkbox" value="选项1"/> 
+	选项2<input type="checkbox" value="选项2"/> 
+	选项3<input type="checkbox" value="选项3"/> 
+</div>
+<textarea class="code">
+<div class="render">	
+	选项1<input type="checkbox" value="选项1"/> 
+	选项2<input type="checkbox" value="选项2"/> 
+	选项3<input type="checkbox" value="选项3"/> 
+</div>
+</textarea>
+<pre></pre>	
+	</div>
+	
+		<script>
+		function checkSelAll(){
+			$("#checkGroup input:checkbox").attr("checked",true);
+			checkRefresh("checkGroup")
+		}
+	</script>
+	<div class="box1" panelWidth="950" >
+		如果要动态更改选择项或增加、删除选项，和修改普通checkbox的做法一样，不同的是需要在最后调用checkRefresh(checkbox的容器ID)来更新显示。例如：
+<br />
+		<div id="checkGroup" class="render">
+			选项1<input type="checkbox" value="选项1"/> 
+			选项2<input type="checkbox" value="选项2"/> 
+			选项3<input type="checkbox" value="选项3"/> 
+			<div class="clear"></div>
+		</div>
+	 	<input type="button" value="全选" onclick="checkSelAll()"/>
+<textarea class="code">
+<div id="checkGroup" class="render">
+	选项1<input type="checkbox" value="选项1"/> 
+	选项2<input type="checkbox" value="选项2"/> 
+	选项3<input type="checkbox" value="选项3"/> 
+	<div class="clear"></div>
+</div>
+<input type="button" value="全选" onclick="checkSelAll()"/>
+</textarea>
+<pre></pre>	
+changeItem()函数：
+<textarea class="code">
+function checkSelAll(){
+	$("#checkGroup input:checkbox").attr("checked",true);
+	checkRefresh("checkGroup")
+}
+</textarea>
+<pre></pre>	
+	</div>
+	
+	<div class="box1" panelWidth="950">
+	禁用checkbox效果如下<br />
+<div class="render">	
+	<label for="checkbox-4" >选项4</label><input type="checkbox" id="checkbox-4" value="选项1" disabled="true"/>
+	<label for="checkbox-5">选项5</label><input type="checkbox" id="checkbox-5" value="选项2" checked="checked"  disabled="true"/>
+</div>
+<textarea class="code">
+<div class="render">	
+<label for="checkbox-4" >选项4</label>
+<input type="checkbox" id="checkbox-4" value="选项1" disabled="true"/>
+<label for="checkbox-5">选项5</label>
+<input type="checkbox" id="checkbox-5" value="选项2" checked="checked"  disabled="true"/>
+</div>
+</textarea>
+<pre></pre>	
+	</div>
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

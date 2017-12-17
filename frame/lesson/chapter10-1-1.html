@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	<div style="width:600px;height:30px;line-height:30px;border:solid 1px #ccc;">
+		<marquee  direction="right" scrollamount="2" scrolldelay="50">
+		滚动文字
+		</marquee>
+	</div>
+	使用marquee标签可以实现一个最简单的滚动。比较适合单条信息滚动进行左右滚动。代码如下：
+<textarea class="code">
+<div style="width:600px;height:30px;line-height:30px;border:solid 1px #ccc;">
+	<marquee  direction="right" scrollamount="2" scrolldelay="50">
+	滚动文字
+	</marquee>
+</div>
+</textarea>
+<pre></pre>	
+	该标签最常用的有3个属性：<br />
+	direction：滚动方向<br />
+	scrollamount：每秒滚动像素值。越小滚动越平滑<br />
+	scrolldelay：滚动速度。越小滚动越慢。<br />
+	下面代码是从右向左滚动
+<textarea class="code">
+<div style="width:600px;height:30px;line-height:30px;border:solid 1px #ccc;">
+	<marquee  direction="left" scrollamount="2" scrolldelay="50">
+	滚动文字
+	</marquee>
+</div>
+</textarea>
+<pre></pre>	
+	效果	
+	<div style="width:600px;height:30px;line-height:30px;border:solid 1px #ccc;">
+		<marquee  direction="left" scrollamount="2" scrolldelay="50">
+		滚动文字
+		</marquee>
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

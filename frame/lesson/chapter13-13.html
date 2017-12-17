@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--打印start-->
+<SCRIPT Language="Javascript">
+function printit(){
+    if (window.print) {
+        window.print();
+    }
+    else {
+        var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+        document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+        WebBrowser1.ExecWB(6, 2);
+    }
+}
+</script>
+<!--打印end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelTitle="打印本页">
+	<input type=button value="打印" onClick="printit()">
+	<br />代码如下：
+<textarea class="code">
+function printit(){
+    if (window.print) {
+        window.print();
+    }
+    else {
+        var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH=0 HEIGHT=0 
+		CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+        document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+        WebBrowser1.ExecWB(6, 2);
+    }
+}
+</textarea>
+<pre></pre>	
+	调用上面的printit()方法即可
+	</div>
+	
+	<div class="box2" panelTitle="打印部分内容（未做过测试）">
+		如果不希望把网页全部内容都打印出来，那么可以把内容放在word或pdf文档中，在页面头部写如下代码：
+<textarea class="code">
+<link rel=alternate media=print href="printversion.doc">
+</textarea>
+<pre></pre>	
+	这时再打印，就会只打印指定的文档了。		
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

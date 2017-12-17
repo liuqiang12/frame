@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	盒子模型在本框架中使用非常广泛，任何内容都可以使用盒子来起到美化页面的作用。这里先演示一个简单的盒子：box1，代码只有一句话：
+<textarea class="code">
+<div class="box1" panelWidth="300" panelHeight="150"></div>
+</textarea>
+<pre></pre>
+	这样就生成了一个盒子。
+<div class="box1" panelWidth="300" panelHeight="150"></div>
+盒子参数如下
+<table class="tableStyle">
+	<tr>
+		<th>参数名</th><th>参数说明</th>
+	</tr>
+	<tr>
+		<td>panelWidth</td><td> 盒子宽度，可以是数值或百分比。默认100%</td>
+	</tr>
+	<tr>
+		<td>panelHeight</td><td>  盒子高度，只能是数值。默认自适应内容</td>
+	</tr>
+	<tr>
+		<td>whiteBg</td><td>是否适应白色背景，该参数默认为false来适应右侧内页的背景色。这样当背景色不是白色也不会显得突兀。但如果是弹出窗口或其他情况，页面
+		的背景色是白色，与右侧内页背景色不一致，则盒子周围会有一圈右侧内页的背景色，会显得突兀，这时可以将该参数设为true，以适应白色的背景。</td>
+	</tr>
+	
+</table>
+	这种盒子适合放置不需要标题的内容。<br />
+	应用举例：
+	<div class="box1" panelWidth="450">
+		<div class="msg_icon1"></div>
+		<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+		项目添加成功，点击这里返回继续添加。
+		</div>
+	</div>
+	代码：
+<textarea class="code">
+<div class="box1" panelWidth="450">
+	<div class="msg_icon1"></div>
+	<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+	项目添加成功，点击这里返回继续添加。
+	</div>
+</div>
+</textarea>
+<pre></pre>
+若要让其水平居中，需要为其添加一个center的样式名。效果如下：
+
+	<div class="box1 center" panelWidth="450">
+		<div class="msg_icon1"></div>
+		<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+		项目添加成功，点击这里返回继续添加。
+		</div>
+	</div>
+代码：
+<textarea class="code">
+<div class="box1 center" panelWidth="450">
+	<div class="msg_icon1"></div>
+	<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+	项目添加成功，点击这里返回继续添加。
+	</div>
+</div>
+</textarea>
+<pre></pre>
+	其他应用举例（水平居中方法都是同样的）：
+	<div class="box1" panelWidth="450">
+		<div class="msg_icon2"></div>
+		<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+		点击这里返回前一页。
+		</div>
+	</div>
+	代码：
+<textarea class="code">
+<div class="box1" panelWidth="450">
+	<div class="msg_icon2"></div>
+	<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+	点击这里返回前一页。
+	</div>
+</div>
+</textarea>
+<pre></pre>
+	
+	<div class="box1" panelWidth="450">
+		<div class="msg_icon3"></div>
+		<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+		您的FlashPlayer版本过低，点击这里进行升级。
+		</div>
+	</div>
+	代码：
+<textarea class="code">
+<div class="box1" panelWidth="450">
+	<div class="msg_icon3"></div>
+	<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+	您的FlashPlayer版本过低，点击这里进行升级。
+	</div>
+</div>
+</textarea>
+<pre></pre>
+	
+	<div class="box1" panelWidth="450">
+		<div class="msg_icon4"><span>标题可修改</span></div>
+		<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+		这里放置自定义提示的内容。
+		</div>
+	</div>
+	代码：
+<textarea class="code">
+<div class="box1" panelWidth="450">
+	<div class="msg_icon4"><span>标题可修改</span></div>
+	<div class="padding_left50 padding_right15 padding_top20 minHeight_100 font_14 font_bold" >
+	这里放置自定义提示的内容。
+	</div>
+</div>
+</textarea>
+<pre></pre>
+	
+	
+	
+</div>						
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

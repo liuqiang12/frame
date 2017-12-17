@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--文字不可选处理start-->
+<script>
+	$(function(){
+		$("body").bind("contextmenu", function(){
+			return false;
+		})
+	})
+	function noEffect() {
+	  with (event) {
+	    returnValue = false;
+	    cancelBubble = true;
+	  }
+	  return;
+	}
+</script>
+<style>
+	body{
+		-moz-user-select:none
+	}
+</style>
+<!--文字不可选处理end-->
+<body onselectstart="noEffect()">
+<div id="scrollContent">
+	
+	<div id="megamenu1" class="simplemenu" style="width:100px;">
+	<ul>
+	<li><a href="javascript:;">选项1</a></li>
+	<li><a href="javascript:;">选项2</a></li>
+	<li><a href="javascript:;">选项3</a></li>
+	<li><a href="javascript:;">选项4</a></li>
+	</ul>
+</div>
+	文字不可选处理：首先对不可选的部分例如body添加onselectstart事件，代码如下：
+<textarea class="code">
+<body onselectstart="noEffect()">
+	内容部分
+</body>
+</textarea>
+<pre></pre>
+	
+	noEffect()函数
+<textarea class="code">
+function noEffect() {
+  with (event) {
+    returnValue = false;
+    cancelBubble = true;
+  }
+  return;
+}
+</textarea>
+<pre></pre>	
+	
+	以上是针对IE的处理。然后再写如下的CSS来实现FireFox文本不可选
+<textarea class="code">
+<style>
+	body{
+		-moz-user-select:none
+	}
+</style>
+</textarea>
+<pre></pre>	
+	这样就做到兼容了。
+	<br />
+	<br />
+	
+	要屏蔽右键菜单，代码如下：
+<textarea class="code">
+$(function(){
+	$("body").bind("contextmenu", function(){
+		return false;
+	})
+})
+</textarea>
+<pre></pre>	
+	屏蔽右键菜单是对IE和FireFox都兼容的。
+</div>
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

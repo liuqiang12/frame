@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelTitle="样式1">
+		<div style="height:35px;">
+			<div class="float_left padding5">左侧内容。如没有可去掉。</div>
+			<div class="float_right padding5">
+				 <div class="float_left padding_top4">
+				<span class="icon_page_first hand">第一页</span> <span class="icon_page_prev hand">上一页</span>
+				<div class="float_left"><a href="javascript:;">1</a> <a href="javascript:;">2</a> <a href="javascript:;" class="red">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a></div>
+				<span class="icon_page_next hand">下一页</span> <span class="icon_page_last hand">最后一页</span>每页
+				</div>
+				 <div class="float_left"><select autoWidth="true"><option>50</option><option>100</option><option>150</option></select></div>
+				  <div class="float_left padding_top4">条记录</div>
+				 <div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+<textarea class="code">
+<div style="height:35px;">
+<div class="float_left padding5">左侧内容。如没有可去掉。</div>
+<div class="float_right padding5">
+	 <div class="float_left padding_top4">
+	<span class="icon_page_first hand">第一页</span> <span class="icon_page_prev hand">上一页</span>
+	<div class="float_left"><a href="javascript:;">1</a> <a href="javascript:;">2</a> <a href="javascript:;" class="red">3</a> <a href="javascript:;">4</a> <a href="javascript:;">5</a></div>
+	<span class="icon_page_next hand">下一页</span> <span class="icon_page_last hand">最后一页</span>每页
+	</div>
+	 <div class="float_left"><select autoWidth="true"><option>50</option><option>100</option><option>150</option></select></div>
+	  <div class="float_left padding_top4">条记录</div>
+	 <div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</textarea>
+<pre></pre>			
+	</div>
+	
+	<div class="box2" panelTitle="样式2">
+		<div style="height:35px;">
+			<div class="float_left padding5">左侧内容。如没有可去掉。</div>
+			<div class="float_right padding5 paging">
+				<div class="float_left padding_top4">
+				<span class="paging_disabled"><a href="javascript:;">上一页</a></span>
+				<span class="paging_current"><a href="javascript:;">1</a></span>
+				<span><a href="javascript:;">2</a></span>
+				<span><a href="javascript:;">3</a></span>
+				<span><a href="javascript:;">4</a></span>
+				<span><a href="javascript:;">5</a></span>
+				<span>...</span>
+				<span><a href="javascript:;">20</a></span>
+				<span><a href="javascript:;">下一页</a></span> &nbsp;每页
+				</div>
+				<div class="float_left"><select autoWidth="true"><option>50</option><option>100</option><option>150</option></select></div>
+				<div class="float_left padding_top4">条记录</div>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+<textarea class="code">
+<div style="height:35px;">
+	<div class="float_left padding5">左侧内容。如没有可去掉。</div>
+	<div class="float_right padding5 paging">
+		<div class="float_left padding_top4">
+		<span class="paging_disabled"><a href="javascript:;">上一页</a></span>
+		<span class="paging_current"><a href="javascript:;">1</a></span>
+		<span><a href="javascript:;">2</a></span>
+		<span><a href="javascript:;">3</a></span>
+		<span><a href="javascript:;">4</a></span>
+		<span><a href="javascript:;">5</a></span>
+		<span>...</span>
+		<span><a href="javascript:;">20</a></span>
+		<span><a href="javascript:;">下一页</a></span>&nbsp;每页
+		</div>
+		<div class="float_left"><select autoWidth="true"><option>50</option><option>100</option><option>150</option></select></div>
+		<div class="float_left padding_top4">条记录</div>
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+</div>
+</textarea>
+<pre></pre>			
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->	
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--标签编辑器start-->
+<script type="text/javascript" src="../js/form/tageditor.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $("#Tags").tagEditor(
+        {
+            items: ["第一个标签", "第二个标签"],
+            confirmRemoval: true
+        });
+        $("#Tags2").tagEditor(
+        {
+            items: ["第一个标签", "第二个标签"],
+            confirmRemoval: true,
+            separator: ' ',
+            completeOnSeparator: true,
+            completeOnBlur: true
+        });
+        $("#Tags3").tagEditor(
+        {
+            confirmRemoval: true,
+            completeOnBlur: true
+        });
+        $("#getTagsButton").click(function() {
+            alert($("#Tags3").tagEditorGetTags());
+        });
+        $("#addTagButton").click(function() {
+            $("#Tags3").tagEditorAddTag('新标签');
+        });
+        $("#resetTagsButton").click(function() {
+            $("#Tags3").tagEditorResetTags();
+        });
+    });
+</script>
+<!--标签编辑器end-->  
+<body>
+<div id="scrollContent">
+	<div class="box2" panelWidth="800" panelTitle="效果">
+	 <input id="Tags" name="Tags" type="text" value="" onkeydown="$.cursorMessage('输入后按回车键');" /><br />
+	 <input id="Tags2" name="Tags2" type="text" value="" onkeydown="$.cursorMessage('输入后按回车键或点击空白处');"/><br />
+	 <input id="Tags3" name="Tags3" type="text" value="标签1,标签2"  onkeydown="$.cursorMessage('输入后按回车键或点击空白处');"/><br />
+	 <button id="getTagsButton">获取标签</button> <button id="addTagButton">添加标签</button> <button id="resetTagsButton">重置标签</button><br />
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="用法">
+	首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/form/tageditor.js"></script>
+</textarea>
+<pre></pre>	
+
+	HTML部分
+<textarea class="code">
+ <input id="Tags" name="Tags" type="text" value="" 
+ onkeydown="$.cursorMessage('输入后按回车键');" /><br />
+ <input id="Tags2" name="Tags2" type="text" value="" 
+ onkeydown="$.cursorMessage('输入后按回车键或点击空白处');"/><br />
+ <input id="Tags3" name="Tags3" type="text" value="标签1,标签2"  
+ onkeydown="$.cursorMessage('输入后按回车键或点击空白处');"/><br />
+ <button id="getTagsButton">获取标签</button> 
+ <button id="addTagButton">添加标签</button> 
+ <button id="resetTagsButton">重置标签</button>
+</textarea>
+<pre></pre>	
+
+	JS部分
+<textarea class="code">
+ $(document).ready(function() {
+    $("#Tags").tagEditor(
+    {
+        items: ["第一个标签", "第二个标签"],
+        confirmRemoval: true
+    });
+    $("#Tags2").tagEditor(
+    {
+        items: ["第一个标签", "第二个标签"],
+        confirmRemoval: true,
+        separator: ' ',
+        completeOnSeparator: true,
+        completeOnBlur: true
+    });
+    $("#Tags3").tagEditor(
+    {
+        confirmRemoval: true,
+        completeOnBlur: true
+    });
+    $("#getTagsButton").click(function() {
+        alert($("#Tags3").tagEditorGetTags());
+    });
+    $("#addTagButton").click(function() {
+        $("#Tags3").tagEditorAddTag('Newly added tag');
+    });
+    $("#resetTagsButton").click(function() {
+        $("#Tags3").tagEditorResetTags();
+    });
+});
+</textarea>
+<pre></pre>	
+	</div>	
+
+		
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

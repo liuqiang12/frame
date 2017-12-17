@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--多功能树结构start-->
+<script type="text/javascript" src="../js/tree/stree/stree.js"></script>
+<link href="../js/tree/stree/stree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+var simpleTreeCollection;
+$(document).ready(function(){
+	simpleTreeCollection = $('.simpleTree').simpleTree({
+		autoclose: true,
+		afterClick:function(node){
+			//alert("text-"+$('span:first',node).text());
+		},
+		afterDblClick:function(node){
+			//alert("text-"+$('span:first',node).text());
+		},
+		afterMove:function(destination, source, pos){
+			//alert("destination-"+destination.attr('id')+" source-"+source.attr('id')+" pos-"+pos);
+		},
+		afterAjax:function()
+		{
+			//alert('Loaded');
+		},
+		animate:true
+		,afterContextMenu:function(){
+			alert("点击了右键")
+		}
+		//,docToFolderConvert:true
+	});
+});
+</script>
+<!--多功能树结构end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelTitle="效果">
+	该树结构能够实现：拖拽改变节点位置、添加节点、修改节点、删除节点、ajax读取数据、响应事件（包括单击、双击、右键、移动、加载等）<br />
+<div class="contextMenu" id="myMenu1">
+	<ul>
+		<li id="add"><img src="images/folder_add.png" /> Add child</li>
+		<li id="reload"><img src="images/arrow_refresh.png" /> Reload</li>
+		<li id="edit"><img src="images/folder_edit.png" /> Edit</li>
+		<li id="delete"><img src="images/folder_delete.png" /> Delete</li>
+	</ul>
+</div>
+<div class="contextMenu" id="myMenu2">
+	<ul>
+		<li id="edit"><img src="images/page_edit.png" /> Edit</li>
+		<li id="delete"><img src="images/page_delete.png" /> Delete</li>
+	</ul>
+</div>
+<ul class="simpleTree">
+	<li class="root" id='1'><span>根节点</span>
+		<ul>
+			
+			<li class="open" id='2'><span>节点 1</span>
+				<ul>
+					
+					<li id='3'><span>节点 1-1</span>
+						<ul class="ajax">
+							<li id='4'>{url:../js/tree/stree/loadTree.html}</li>
+						</ul>
+					</li>
+					
+				</ul>
+			</li>
+			
+			<li id='5'><span>节点 2</span>
+				<ul>
+					
+					<li id='6'><span>节点 2-1</span>
+						<ul>
+							
+							<li id='7'><span>节点 2-1-1</span></li>
+							
+							<li id='8'><span>节点 2-1-2</span></li>
+							
+							<li id='9'><span>节点 2-1-3</span></li>
+							
+							<li id='10'><span>节点 2-1-4</span>
+								<ul class="ajax">
+									<li id='11'>{url:../js/tree/stree/loadTree.html}</li>
+								</ul>
+							</li>
+							
+						</ul>
+					</li>
+					
+					<li id='12'><span>节点 2-2</span>
+						<ul>
+							
+							<li id='13'><span>节点 2-2-1</span></li>
+							
+						</ul>
+					</li>
+					
+					
+					<li id='14'><span>节点 2-3</span>
+						<ul>
+							
+							<li id='15'><span>节点 2-3-1</span>
+									<ul>
+										
+										<li id='16'><span>节点 2-3-1-1</span></li>
+										
+										<li id='17'><span>节点 2-3-1-2</span></li>
+										
+										<li id='18'><span>节点 2-3-1-3</span>
+											<ul>
+												
+												<li id='19'><span>节点 2-3-1-3-1</span></li>
+												
+											</ul>
+										</li>
+										
+										<li id='20'><span>节点 2-3-1-4</span></li>
+										
+										<li id='21'><span>节点 2-3-1-5</span></li>
+										
+										<li id='22'><span>节点 2-3-1-6</span>
+											<ul>
+												
+												<li id='23'><span>节点 2-3-1-6-1</span></li>
+												
+											</ul>
+										</li>
+										
+										<li id='24'><span>节点 2-3-1-7</span></li>
+										
+										<li id='25'><span>节点 2-3-1-8</span></li>
+										
+										<li id='26'><span>节点 2-3-1-9</span>
+											<ul>
+												
+												<li id='27'><span>节点 2-3-1-9-1</span></li>
+												
+											</ul>
+										</li>
+										
+									</ul>
+							</li>
+							
+						</ul>
+					</li>
+					
+				</ul>
+			</li>
+			
+		</ul>
+	</li>
+</ul>
+	</div>
+	<div class="box2" panelTitle="用法">
+首先引入脚本和CSS：
+<textarea class="code">
+<script type="text/javascript" src="../js/tree/stree/stree.js"></script>
+<link href="../js/stree/stree.css" rel="stylesheet" type="text/css"/>
+</textarea>
+<pre></pre>
+
+HTML部分：
+<textarea class="code">
+<ul class="simpleTree">
+<li class="root" id='1'><span>根节点</span>
+<ul>
+
+<li class="open" id='2'><span>节点 1</span>
+<ul>
+	
+	<li id='3'><span>节点 1-1</span>
+		<ul class="ajax">
+			<li id='4'>{url:../js/tree/stree/loadTree.html}</li>
+		</ul>
+	</li>
+	
+</ul>
+</li>
+
+<li id='5'><span>节点 2</span>
+<ul>
+	
+	<li id='6'><span>节点 2-1</span>
+		<ul>
+			
+			<li id='7'><span>节点 2-1-1</span></li>
+			
+			<li id='8'><span>节点 2-1-2</span></li>
+			
+			<li id='9'><span>节点 2-1-3</span></li>
+			
+			<li id='10'><span>节点 2-1-4</span>
+				<ul class="ajax">
+					<li id='11'>{url:../js/tree/stree/loadTree.html}</li>
+				</ul>
+			</li>
+			
+		</ul>
+	</li>
+	
+	<li id='12'><span>节点 2-2</span>
+		<ul>
+			
+			<li id='13'><span>节点 2-2-1</span></li>
+			
+		</ul>
+	</li>
+	
+	
+	<li id='14'><span>节点 2-3</span>
+		<ul>
+			
+			<li id='15'><span>节点 2-3-1</span>
+					<ul>
+						
+						<li id='16'><span>节点 2-3-1-1</span></li>
+						
+						<li id='17'><span>节点 2-3-1-2</span></li>
+						
+						<li id='18'><span>节点 2-3-1-3</span>
+							<ul>
+								
+								<li id='19'><span>节点 2-3-1-3-1</span></li>
+								
+							</ul>
+						</li>
+						
+						<li id='20'><span>节点 2-3-1-4</span></li>
+						
+						<li id='21'><span>节点 2-3-1-5</span></li>
+						
+						<li id='22'><span>节点 2-3-1-6</span>
+							<ul>
+								
+								<li id='23'><span>节点 2-3-1-6-1</span></li>
+								
+							</ul>
+						</li>
+						
+						<li id='24'><span>节点 2-3-1-7</span></li>
+						
+						<li id='25'><span>节点 2-3-1-8</span></li>
+						
+						<li id='26'><span>节点 2-3-1-9</span>
+							<ul>
+								
+								<li id='27'><span>节点 2-3-1-9-1</span></li>
+								
+							</ul>
+						</li>
+						
+					</ul>
+			</li>
+			
+		</ul>
+	</li>
+	
+</ul>
+</li>
+
+</ul>
+</li>
+</ul>
+</textarea>
+<pre></pre>
+
+JS部分：
+<textarea class="code">
+var simpleTreeCollection;
+$(document).ready(function(){
+	simpleTreeCollection = $('.simpleTree').simpleTree({
+		autoclose: true,
+		afterClick:function(node){
+			//alert("text-"+$('span:first',node).text());
+		},
+		afterDblClick:function(node){
+			//alert("text-"+$('span:first',node).text());
+		},
+		afterMove:function(destination, source, pos){
+			//alert("destination-"+destination.attr('id')+" source-"+source.attr('id')+" pos-"+pos);
+		},
+		afterAjax:function()
+		{
+			//alert('Loaded');
+		},
+		animate:true
+		,afterContextMenu:function(){
+			alert("点击了右键")
+		}
+		//,docToFolderConvert:true
+	});
+});
+</textarea>
+<pre></pre>
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

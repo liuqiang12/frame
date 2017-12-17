@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--列表标识start-->
+<script type="text/javascript" src="../js/text/nesteddecimallist.js"></script>
+<script type="text/javascript">
+  	$(document).ready(function(){
+        $('#example1').nestedDecimalList();
+		$('#example2').nestedDecimalList({ 
+			trailingPeriod: true, 
+			numberClass: 'purpleNumbers', 
+			zeroStart: true });
+    });
+</script>
+<style>
+.nesteddecimal { font-size: 14px; }
+.nesteddecimal li { padding: 5px 0 0 0; }
+.nesteddecimal ol { font-size: 14px; margin: 12px 0 12px 25px; }
+</style>
+<!--列表标识end-->
+<body>
+<div id="scrollContent">
+		<div style="border:solid 1px #cccccc;width:500px;">
+		    <ol id="example1" class="nesteddecimal">
+		        <li>文字测试文字测试文字测试
+		            <ol>
+		                <li>文字测试文字测试文字测试</li>
+		                <li>文字测试文字测试文字测试</li>
+		                <li>文字测试文字测试文字测试
+		                    <ol>
+		                        <li>文字测试文字测试文字测试</li>
+		                        <li>文字测试文字测试文字测试</li>
+		                        <li>文字测试文字测试文字测试</li>
+		                    </ol>
+		                </li>
+		                <li>文字测试文字测试文字测试</li>
+		            </ol>
+		        </li>
+		        <li>文字测试文字测试文字测试</li>
+		        <li>文字测试文字测试文字测试</li>
+		        <li>文字测试文字测试文字测试</li>
+		    </ol>
+		</div>
+	首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/text/nesteddecimallist.js"></script>
+</textarea>
+<pre></pre>	
+
+	HTML部分
+<textarea class="code">
+<div style="border:solid 1px #cccccc;width:500px;">
+    <ol id="example1" class="nesteddecimal">
+        <li>文字测试文字测试文字测试
+            <ol>
+                <li>文字测试文字测试文字测试</li>
+                <li>文字测试文字测试文字测试</li>
+                <li>文字测试文字测试文字测试
+                    <ol>
+                        <li>文字测试文字测试文字测试</li>
+                        <li>文字测试文字测试文字测试</li>
+                        <li>文字测试文字测试文字测试</li>
+                    </ol>
+                </li>
+                <li>文字测试文字测试文字测试</li>
+            </ol>
+        </li>
+        <li>文字测试文字测试文字测试</li>
+        <li>文字测试文字测试文字测试</li>
+        <li>文字测试文字测试文字测试</li>
+    </ol>
+</div>
+</textarea>
+<pre></pre>		
+
+	JS部分
+<textarea class="code">
+$(document).ready(function(){
+    $('#example1').nestedDecimalList();
+});
+</textarea>
+<pre></pre>	
+
+	通过CSS可控制列表间距、偏移、字体等。CSS代码
+<textarea class="code">
+<style>
+.nesteddecimal { font-size: 14px; }
+.nesteddecimal li { padding: 5px 0 0 0; }
+.nesteddecimal ol { font-size: 14px; margin: 12px 0 12px 25px; }
+</style>
+</textarea>
+<pre></pre>	
+<br />
+还可实现列表标识从0开始。JS代码
+<textarea class="code">
+$('#example2').nestedDecimalList({ 
+	trailingPeriod: true, 
+	numberClass: 'purpleNumbers', 
+	zeroStart: true });
+</textarea>
+<pre></pre>	
+		<div style="border:solid 1px #cccccc;width:500px;">
+		    <ol id="example2" class="nesteddecimal">
+		        <li>文字测试文字测试文字测试
+		            <ol>
+		                <li>文字测试文字测试文字测试</li>
+		                <li>文字测试文字测试文字测试</li>
+		                <li>文字测试文字测试文字测试
+		                    <ol>
+		                        <li>文字测试文字测试文字测试</li>
+		                        <li>文字测试文字测试文字测试</li>
+		                        <li>文字测试文字测试文字测试</li>
+		                    </ol>
+		                </li>
+		                <li>文字测试文字测试文字测试</li>
+		            </ol>
+		        </li>
+		        <li>文字测试文字测试文字测试</li>
+		        <li>文字测试文字测试文字测试</li>
+		        <li>文字测试文字测试文字测试</li>
+		    </ol>
+		</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--加入收藏start-->
+<script type="text/javascript">
+function bookmarksite(title, url){
+    if (window.sidebar) // firefox
+        window.sidebar.addPanel(title, url, "");
+    else 
+        if (window.opera && window.print) { // opera
+            var elem = document.createElement('a');
+            elem.setAttribute('href', url);
+            elem.setAttribute('title', title);
+            elem.setAttribute('rel', 'sidebar');
+            elem.click();
+        }
+        else 
+            if (document.all)// ie
+                window.external.AddFavorite(url, title);
+}
+</script>
+<!--加入收藏end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelWidth="800" panelTitle="设为首页">
+	<a href="javascript:void(0)" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.abc.com');">点击设为首页</a>
+	<br />（firefox无效）
+<textarea class="code">
+<a href="#" onClick="this.style.behavior='url(#default#homepage)';
+this.setHomePage('http://www.abc.com');">点击设为首页</a>
+</textarea>
+<pre></pre>		
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="加入收藏">
+	<a href="javascript:bookmarksite('网站名称', 'http://www.abc.com')">点击加入收藏</a>
+<textarea class="code">
+<a href="javascript:bookmarksite('网站名称', 'http://www.abc.com')">点击加入收藏</a>
+</textarea>
+<pre></pre>	
+
+<textarea class="code">
+function bookmarksite(title, url){
+    if (window.sidebar) // firefox
+        window.sidebar.addPanel(title, url, "");
+    else 
+        if (window.opera && window.print) { // opera
+            var elem = document.createElement('a');
+            elem.setAttribute('href', url);
+            elem.setAttribute('title', title);
+            elem.setAttribute('rel', 'sidebar');
+            elem.click();
+        }
+        else 
+            if (document.all)// ie
+                window.external.AddFavorite(url, title);
+}
+</textarea>
+<pre></pre>
+	</div>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

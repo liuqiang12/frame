@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--监听文字改变start-->
+<script type="text/javascript" src="../js/method/typewatch.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#text1").typeWatch( { captureLength:2,highlight:false,wait:2000, callback:finished } );
+	})
+
+	function finished(txt) {
+		top.Dialog.alert('输入: ' + txt);
+	}
+</script>
+<!--监听文字改变end-->
+<body>
+<div id="scrollContent">
+	监听文字是否改变可用在自动保存等一些地方。例如下面的文本域，监听当文字改变的两秒后触发事件。<br />
+	<textarea id="text1" watermark="请输入两个以上的字"></textarea>
+	<br/>首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/method/typewatch.js"></script>
+</textarea>
+<pre></pre>		
+
+	
+	在初始化函数中对该文本域做监听。
+<textarea class="code">
+$(function(){
+	$("#text1").typeWatch( { captureLength:2,highlight:false,wait:2000, callback:finished } );
+})
+
+function finished(txt) {
+	top.Dialog.alert('输入: ' + txt);
+}
+</textarea>
+<pre></pre>
+
+	上面的四个参数：<br />
+	captureLength表示在多少字以上做监听<br />
+	highlight表示鼠标移入时文字是否被选中<br />
+	wait表示监听到文字改变时多久（毫秒）后触发，当不写wait参数时则在失去焦点后触发<br />
+	callback代表触发的方法。
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

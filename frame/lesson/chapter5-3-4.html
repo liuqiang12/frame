@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--弹窗函数start-->
+<script>
+function openWin(){
+	var diag = new top.Dialog();
+	diag.Title = "弹窗中的表单模板";
+	diag.URL = "lesson/chapter5-3-4-content1.html";
+	diag.Height=480;
+	diag.MessageTitle="表单标题";
+	diag.Message="这里写一些填表说明";
+	diag.CancelEvent = function(){
+		diag.innerFrame.contentWindow.location.reload();
+		diag.close();
+		};
+	diag.show();
+}
+</script>
+<!--弹窗函数end-->
+<body>
+<div id="scrollContent">
+	<input type="button" value="弹窗中的表单模板" onclick='openWin()'/>
+<br />
+注意：如果弹窗表单中有日期控件，那么可能会产生这样一个bug:<br />
+用户弹出日期控件然后不选择就直接关闭窗口，日期控件在窗口关闭后也不会关闭。
+而且下次再打开窗口时就无法再打开日期控件了。<br />
+解决办法：在弹出窗口时监听关闭事件，当弹窗关闭时将窗体内页刷新。弹出窗口代码如下：
+<textarea class="code">
+function openWin(){
+	var diag = new top.Dialog();
+	diag.Title = "弹窗中的表单模板";
+	diag.URL = "lesson/chapter5-3-4-content1.html";
+	diag.Height=480;
+	diag.MessageTitle="表单标题";
+	diag.Message="这里写一些填表说明";
+	diag.CancelEvent = function(){
+		diag.innerFrame.contentWindow.location.reload();
+		diag.close();
+		};
+	diag.show();
+}
+</textarea>
+<pre></pre>	
+
+<input type="button" value="查看模板代码" onclick='top.Dialog.open({Height:"100",Width:"100",URL:"lesson/chapter5-3-4-code.html",Title:"弹窗中的表单模板"});'/>
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

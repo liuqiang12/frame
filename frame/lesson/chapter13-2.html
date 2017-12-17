@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	<div class="box2" panelTitle="设定">
+		父页main.html中引入了两个iframe页面，并且有函数parentFunc()。代码：
+<textarea class="code">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<script type="text/javascript"
+	function parentFunc(){
+		//代码段
+	}
+	</script>
+	<body>
+		<IFRAME scrolling="no" frameBorder=0 id=frmchild1 name=frmchild1 height="400"
+		src="childPage1.html" width="100%" allowTransparency="true"></IFRAME>
+		
+		<IFRAME scrolling="no" frameBorder=0 id=frmchild2 name=frmchild2 height="400"
+		src="childPage2.html" width="100%" allowTransparency="true"></IFRAME>
+	</body>
+</html>
+</textarea>
+<pre></pre>	
+
+	子页childPage1.html中有函数childFunc1()。代码：
+<textarea class="code">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<script type="text/javascript"
+	function childFunc1(){
+		//代码段
+	}
+	</script>
+	<body>
+	</body>
+</html>
+</textarea>
+<pre></pre>	
+
+	子页childPage2.html中有函数childFunc2()。代码：
+<textarea class="code">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<script type="text/javascript"
+	function childFunc2(){
+		//代码段
+	}
+	</script>
+	<body>
+	</body>
+</html>
+</textarea>
+<pre></pre>	
+	</div>
+	
+	<div class="box2" panelTitle="子页调父页方法">
+		如果子页childPage1.html要调用父页main.html中的parentFunc()方法，那么应该在childPage1.html中写如下代码：
+<textarea class="code">
+parent.parentFunc()
+</textarea>
+<pre></pre>	
+		或者用
+<textarea class="code">
+top.parentFunc()
+</textarea>
+<pre></pre>	
+		parent找上一级，top找最上一级。因为childPage1.html属于二级，所以parent和top作用一样。<br />
+		如果	childPage1.html又嵌了一个	grandchildrenPage.html的iframe，grandchildrenPage.html想要调用main.html中的parentFunc()方法，
+		则应该
+<textarea class="code">
+parent.parent.parentFunc()
+</textarea>
+<pre></pre>	
+		或者用
+<textarea class="code">
+top.parentFunc()
+</textarea>
+<pre></pre>	
+	</div>
+	
+	<div class="box2" panelTitle="两个子页方法互调">
+		如果childPage1.html要调用childPage2.html中的方法childFunc2()，则应该在childPage1.html中写如下代码：
+<textarea class="code">
+parent.frmchild2.parentFunc()
+</textarea>
+<pre></pre>	
+	或者用
+<textarea class="code">
+top.frmchild2.parentFunc()
+</textarea>
+<pre></pre>	
+
+	frmchild2是main.html中引入第二个iframe时的id。同理，childPage2.html要调用childPage1.html中的方法childFunc1()，则应该在childPage2.html中写如下代码：
+<textarea class="code">
+parent.frmchild1.parentFunc()
+</textarea>
+<pre></pre>	
+	或者用
+<textarea class="code">
+top.frmchild1.parentFunc()
+</textarea>
+<pre></pre>	
+	</div>
+	
+	<div class="box2" panelTitle="子页取得父页的节点对象及属性">
+		在main.html中有一个按钮：
+<textarea class="code">
+<input type="button" onclick="testFunc()" value="aaa" id="parentBtn"/>
+</textarea>
+<pre></pre>	
+		子页childPage1.html要取得该按钮的value，则应在childPage1.html中写如下代码：
+<textarea class="code">
+parent.document.getElementById("parentBtn").value;
+</textarea>
+<pre></pre>	
+	或者用
+<textarea class="code">
+top.document.getElementById("parentBtn").value;
+</textarea>
+<pre></pre>	
+	</div>
+	
+	<div class="box2" panelTitle="两个子页互取节点">
+		例如子页childPage1.html中有一个按钮，如下：
+<textarea class="code">
+<input type="button" value="11" id="btn"/>
+</textarea>
+<pre></pre>
+		如果childPage2.html要调用childPage1.html中按钮的value，则应该在childPage2.html中写如下代码：
+<textarea class="code">
+parent.frmchild1.document.getElementById("btn").value;
+</textarea>
+<pre></pre>	
+	或者用
+<textarea class="code">
+top.frmchild1.document.getElementById("btn").value;
+</textarea>
+<pre></pre>	
+	</div>
+
+	
+	<div class="box2" panelTitle="父页调用子页方法">
+		如果main.html要调用子页childPage1.html中的方法childFunc1()，应在main.html中写如下代码：
+<textarea class="code">
+document.getElementById("frmchild1").contentWindow.childFunc1()
+</textarea>
+<pre></pre>	
+		frmchild1是main.html中引入第一个iframe时的id。<br />
+		注意：可能网上流传着其他的做法，但大多不兼容。有的只能在IE生效，有的只能在FireFox下生效。所以要以此为准。
+	</div>
+	
+	<!--
+	<div class="box2" panelTitle="父页读取子页面body及其属性">
+		例如main.html要读取子页childPage1.html中内容的高度。childPage1.html中的内容高度可以从body节点的scrollHeight获得。
+		那么在main.html中需要用下面的方式得到子页的body节点
+<textarea class="code">
+var frm=document.getElementById("frmchild1");
+var bodyObj;
+if (frm && !document.all) {//如果是IE
+	bodyObj=frm.contentDocument.body;
+}
+else{//如果非IE
+	bodyObj=frm.Document.body;
+}
+</textarea>
+<pre></pre>	
+	IE和非IE取得body的方式不同。另外还需注意一点的是，需要在iframe页面onload后才能取到body。所以完整的做法是main.html在引入childPage1.html加上onload函数，如下：
+<textarea class="code">
+<IFRAME scrolling="no" frameBorder=0 id=frmchild1 name=frmchild1 height="400"
+src="childPage1.html" onload="getChildHeight()" width="100%" allowTransparency="true"></IFRAME>
+</textarea>
+<pre></pre>	
+	getChildHeight()函数如下：
+<textarea class="code">
+function getChildHeight(){
+	var frm=document.getElementById("frmchild1");
+	var childHeight;
+	if (frm && !document.all) {//如果是IE
+		childHeight=frm.contentDocument.body.scrollHeight+"px";
+	}
+	else{//如果非IE
+		childHeight=frm.Document.body.scrollHeight+"px";
+	}
+}
+</textarea>
+<pre></pre>			
+	</div>
+	-->
+	<div class="box2" panelTitle="父页取得子页节点对象及其属性">
+		例如子页childPage1.html中有一个按钮，如下：
+<textarea class="code">
+<input type="button" value="11" id="btn"/>
+</textarea>
+<pre></pre>			
+		main.html要取得或更改子页childPage1.html的按钮的value值，那么应该用如下代码：
+<textarea class="code">
+document.getElementById("frmrightChild").contentWindow.document.getElementById('btn').value;
+</textarea>
+<pre></pre>	
+	再例如要取得子页childPage1.html的内容高度，可以从body节点的scrollHeight获得。
+<textarea class="code">
+document.getElementById("frmrightChild").contentWindow.document.body.scrollHeight;
+</textarea>
+<pre></pre>	
+	但要注意需要在iframe页面onload后才能取到其节点。所以完整的做法是main.html在引入childPage1.html加上onload函数，如下：
+<textarea class="code">
+<IFRAME scrolling="no" frameBorder=0 id=frmchild1 name=frmchild1 height="400"
+src="childPage1.html" onload="getChildHeight()" width="100%" allowTransparency="true"></IFRAME>
+</textarea>
+<pre></pre>	
+	getChildHeight()函数如下：
+<textarea class="code">
+function getChildHeight(){
+	var frm=document.getElementById("frmchild1");
+	var childHeight;
+	childHeight=frm.contentWindow.document.body.scrollHeight+"px";
+}
+</textarea>
+<pre></pre>	
+	</div>
+	
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

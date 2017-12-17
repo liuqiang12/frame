@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--引入flash start-->
+<script type="text/javascript" src="../js/method/swfobject.js"></script> 
+<script>
+	$(function(){
+		var so = new SWFObject("../flash/jianshe.swf", "sotester", "100%", "100%", "6", "#FF6600");
+      	so.addParam("wmode", "transparent" );
+		so.write("flashcontent");
+	})
+</script>
+<!--引入flash end-->
+<body>
+<div id="scrollContent">
+	
+	
+	<div class="box2" panelTitle="用法">
+	首先引入脚本
+<textarea class="code">
+<script type="text/javascript" src="../js/method/swfobject.js"></script> 
+</textarea>
+<pre></pre>
+	HTML代码如下：
+<textarea class="code">
+<div id="flashcontent" style="width:300px;height:200px;"> 
+    <div class="flash_install">
+		<div class="msg_icon3"></div>
+		<div class="flash_install_con" >
+		您需要升级Flash播放器，<span class="forIE"><a href="../flash/flash_IE.exe">点击这里</a>安装</span>
+		<span class="forFF"><a href="../flash/flash_FF.exe">点击这里</a>进行安装</span>。
+		<br />安装后请关闭浏览器再重新打开
+		</div>
+	</div>
+</div>
+</textarea>
+<pre></pre>	
+	使用CSS定义容器flashcontent的尺寸。最后使用JS将swf填入容器。代码如下：
+<textarea class="code">
+$(function(){
+	var so = new SWFObject("../flash/jianshe.swf", "sotester", "100%", "100%", "6", "#FF6600");
+  	so.addParam("wmode", "transparent" );
+	so.write("flashcontent");
+})
+</textarea>
+<pre></pre>	
+几个参数分别为：swf路径、自定义swf的id、宽、高、最低播放器版本、背景色。效果如下：
+	</div>
+	
+<div id="flashcontent" style="width:300px;height:200px;"> 
+    <div class="flash_install">
+		<div class="msg_icon3"></div>
+		<div class="flash_install_con" >
+		您需要升级Flash播放器，<span class="forIE"><a href="../flash/flash_IE.exe">点击这里</a>安装</span>
+		<span class="forFF"><a href="../flash/flash_FF.exe">点击这里</a>进行安装</span>。
+		<br />安装后请关闭浏览器再重新打开
+		</div>
+	</div>
+</div>
+当用户没有安装flash播放器或者播放器版本低于参数设定值，则会出现下图所示的提示：<br />
+	<img src="../images/demo/img17.jpg"/><br />
+	提示信息会自动判断当前的浏览器类型，从而下载安装不同的插件。
+	
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

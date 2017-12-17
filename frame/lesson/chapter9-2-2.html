@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--去除虚线链接start-->
+<style>
+a {
+	behavior:url(../js/method/focus.htc)
+}
+</style>
+<!--去除虚线链接end-->
+<body>
+<div id="scrollContent">
+
+	<div class="list_menu3">
+		<div class="current"><span><a href="javascript:;">选项1</a></span></div>
+		<div><span><a href="javascript:;">选项2</a></span></div>
+		<div><span><a href="javascript:;">选项3</a></span></div>
+		<div><span><a href="javascript:;">选项4</a></span></div>
+		<div><span><a href="javascript:;">选项5</a></span></div>
+	</div>
+	比较有特点的一级导航，鼠标移入和点击后分别有效果。但是宽度不能自适应，限制了使用范围。
+
+
+<div class="box2" panelWidth="800" panelTitle="用法">		
+	代码如下：
+<textarea class="code">
+<div class="list_menu3">
+	<div class="current"><span><a href="javascript:;">选项1</a></span></div>
+	<div><span><a href="javascript:;">选项2</a></span></div>
+	<div><span><a href="javascript:;">选项3</a></span></div>
+	<div><span><a href="javascript:;">选项4</a></span></div>
+	<div><span><a href="javascript:;">选项5</a></span></div>
+</div>
+</textarea>
+<pre></pre>
+可以引入去掉链接虚线的htc文件达到更好的效果：
+<textarea class="code">
+<style>
+a {
+	behavior:url(../js/method/focus.htc)
+}
+</style>
+</textarea>
+<pre></pre>
+</div>
+	该导航还有一种迷你尺寸，如下：
+
+	<div class="list_menu3_min">
+		<div class="current"><span><a href="javascript:;">栏目选项1</a></span></div>
+		<div><span><a href="javascript:;">栏目选项2</a></span></div>
+		<div><span><a href="javascript:;">栏目选项3</a></span></div>
+		<div><span><a href="javascript:;">栏目选项4</a></span></div>
+		<div><span><a href="javascript:;">栏目选项5</a></span></div>
+	</div>
+代码如下：
+<textarea class="code">
+<div class="list_menu3_min">
+	<div class="current"><span><a href="javascript:;">栏目选项1</a></span></div>
+	<div><span><a href="javascript:;">栏目选项2</a></span></div>
+	<div><span><a href="javascript:;">栏目选项3</a></span></div>
+	<div><span><a href="javascript:;">栏目选项4</a></span></div>
+	<div><span><a href="javascript:;">栏目选项5</a></span></div>
+</div>
+</textarea>
+<pre></pre>	
+	应用示例见“导航与布局>>综合布局>>纵向导航模板”
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

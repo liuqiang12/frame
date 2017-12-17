@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	当右侧的二级页面需要再嵌入iframe时，如果只用常规代码：
+<textarea class="code">
+<IFRAME scrolling="no" width="100%" frameBorder=0 id=frmrightChild name=frmrightChild  
+src="00.html"  allowTransparency="true"></IFRAME>
+</textarea>
+<pre></pre>	
+	那么由于浏览器默认会对其设置一个大约200像素的高度，内容可能会显示不全。<br />
+	如果对iframe加上高度，可能在自己浏览器上没问题，但由于用户分辨率和浏览器窗口尺寸的不同，在某些情况可能会出现两个滚动条（二级页面和iframe页各有一个）。<br />
+	所以正确的做法是让iframe页面自适应高度（即iframe的高度取决于该iframe内容），这样就只会在二级页面出现滚动条了。实现代码
+<textarea class="code">
+<IFRAME scrolling="no" width="100%" frameBorder=0 id=frmrightChild name=frmrightChild 
+onload="iframeHeight('frmrightChild')" src="00.html"  allowTransparency="true"></IFRAME>
+</textarea>
+<pre></pre>	
+	即添加onload事件调用iframeHeight()方法，方法中的参数为该iframe的id。该方法是框架集成的，不必单写。
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

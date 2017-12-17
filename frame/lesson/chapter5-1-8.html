@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+	<div id="scrollContent">
+
+	一个基本的上传控件效果：
+
+<input type="file" /><br />
+	当载入文件后，鼠标移入控件上默认会有信息提示显示文件路径。
+	代码如下：
+<textarea class="code">
+<input type="file"/>
+</textarea>
+<pre></pre>	
+	<br/><br/><br/><br/>
+	IE下上传框的宽度默认是与文本框对齐的（FireFox下会有些偏差）。如下：<br />
+	文本框：<input type="text"/><br />
+	上传框：<input type="file" /><br />
+	可以通过设置style来自定义宽度，但不建议这样做，否则在FireFox中可能会产生些问题。
+	<br/><br/><br/><br/>
+		如果不需显示信息提示，设置其showInfo属性为false。效果<br />
+		<input type="file" showInfo="false"/><br />
+		代码如下：
+<textarea class="code">
+<input type="file" showInfo="false"/>
+</textarea>
+<pre></pre>	
+	<br/><br/><br/><br/>
+		想要恢复成系统默认的file，加class<br />
+		<input type="file" class="default"/><br />
+		代码如下：
+<textarea class="code">
+<input type="file" class="default"/>
+</textarea>
+<pre></pre>	
+		
+		
+	</div>					
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

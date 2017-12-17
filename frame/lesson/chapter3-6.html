@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<script>
+	function myTest(){
+		setTimeout("pageForword()",2000)
+	}
+	function pageForword(){
+		window.location="chapter3-6-content1.html"
+	}
+</script>
+<body>
+<div id="scrollContent">
+<div class="box2" panelTitle="嵌在页面里的进度条">
+	<div class="progressBg"><div class="progressBar"></div></div>
+	代码如下：
+<textarea class="code">
+<div class="progressBg"><div class="progressBar"></div></div>
+</textarea>
+<pre></pre>
+</div>
+
+<div class="box2" panelTitle="弹出的进度条">
+	<input type="button" onclick="showProgressBar()" value="点击弹出进度条" />
+<br />代码如下：
+<textarea class="code">
+<input type="button" onclick="showProgressBar()" value="点击弹出进度条" />
+</textarea>
+<pre></pre>	
+只要调用showProgressBar()方法即可。该方法已集成在框架代码中，不必单独写。<br />
+如果要自定义窗口的标题，将新标题作为参数即可，例如showProgressBar('页面初始化中...')
+</div>
+
+<div class="box2" panelTitle="进度条用法">
+	页面加载时使用进度条的方法：在$("document").ready时出现进度条，在window.onload中或页面最底部调用top.Dialog.close()将窗口关闭隐藏进度条<br /><br />
+
+也可用在页面转跳中。点击下面的按钮后，在弹出窗口同时页面开始转跳。当新页面从服务器端加载完毕后，在新页面调用top.Dialog.close()将窗口关闭。<br />
+这里让转跳延时2秒来模拟从服务器端加载这个过程。代码如下：
+<textarea class="code">
+<input type="button" onclick='showProgressBar();myTest()' value="点击后等待2秒" />
+</textarea>
+<pre></pre>
+脚本代码
+<textarea class="code">
+function myTest(){
+	setTimeout("pageForword()",2000)
+}
+function pageForword(){
+	window.location="chapter3-6-content1.html"
+}
+</textarea>
+<pre></pre>
+
+<input type="button" onclick='showProgressBar();myTest()' value="点击后等待2秒" />
+</div>
+</div>						
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

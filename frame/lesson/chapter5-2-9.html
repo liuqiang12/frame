@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--软键盘start-->
+<script type="text/javascript" src="../js/form/keypad.js"></script>
+<!--软键盘end-->
+<body>
+<div id="scrollContent">
+	首先引入脚本：
+<textarea class="code">
+<script type="text/javascript" src="../js/form/keypad.js"></script>
+</textarea>
+<pre></pre>
+
+	然后写一个文本框，将class设为keypad即可。
+<textarea class="code">
+<input class="keypad" type="text"/>
+</textarea>
+<pre></pre>	
+
+	效果如下：<br />
+	<input class="keypad" type="text"/>
+	
+	<br /><br />默认只显示数字键盘，如果为其添加一个mode="full"的属性，就会显示整个键盘。<br />
+<textarea class="code">
+<input class="keypad" mode="full" type="text"/>
+</textarea>
+<pre></pre>		
+	效果如下：<br />
+	<input class="keypad" mode="full" type="text"/>
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

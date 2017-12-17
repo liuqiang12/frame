@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+
+<!--多级抽屉导航start-->
+<script type="text/javascript" src="../js/nav/ddaccordion.js"></script>
+<!--多级抽屉导航end-->
+
+<!--去除链接虚线start-->
+<style>
+a {
+	behavior:url(../js/method/focus.htc)
+}
+</style>
+<!--去除链接虚线end-->
+<body>
+<div id="scrollContent">
+<div class="box2" panelWidth="800" panelTitle="效果">
+	<div style="width:200px;">
+		<div class="arrowlistmenu">
+		<div class="menuheader"><a href="javascript:;" target="frmright">一级导航示例</a></div>
+		<div class="menuheader expandable">二级导航示例</div>
+		<ul class="categoryitems">
+		<li><a href="javascript:;" target="frmright"><span>第二级1</span></a></li>
+		<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+		</ul>
+		<div class="menuheader expandable">三级导航示例</div>
+		<ul class="categoryitems">
+		<li><a target="frmright"><span>第二级1</span></a>
+			<ul>
+				<li><a target="frmright"><span>第三极1</span></a></li>
+				<li><a href="javascript:;" target="frmright"><span>第三极2</span></a></li>
+				<li><a href="javascript:;" target="frmright"><span>第三极3</span></a></li>
+			</ul>
+		</li>
+		<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+		<li><a href="javascript:;" target="frmright"><span>第二级3</span></a></li>
+		</ul>
+		<div class="menuheader expandable">四级导航示例</div>
+		<ul class="categoryitems">
+		<li><a target="frmright"><span>第二级1</span></a>
+			<ul>
+				<li><a target="frmright"><span>第三极1</span></a>
+					<ul>
+						<li><a href="javascript:;" target="frmright"><span>第四级1</span></a></li>
+						<li><a href="javascript:;" target="frmright"><span>第四级2</span></a></li>
+					</ul>
+				</li>
+				<li><a href="javascript:;" target="frmright"><span>第三极2</span></a></li>
+				<li><a href="javascript:;" target="frmright"><span>第三极3</span></a></li>
+			</ul>
+		</li>
+		<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+		<li><a href="javascript:;" target="frmright"><span>第二级3</span></a></li>
+		</ul>
+		</div>
+	</div>
+	多级抽屉导航最多支持4级。宽度自适应容器。鼠标移入下级和点击后都会有效果。但因为级数众多，下级看起来并不太明显。推荐级数较多时使用。
+</div>
+	
+<div class="box2" panelWidth="800" panelTitle="用法">	
+	首先引入脚本和去掉链接虚线的htc文件：
+<textarea class="code">
+<script type="text/javascript" src="../js/nav/ddaccordion.js"></script>
+<style>
+a {
+	behavior:url(../js/method/focus.htc)
+}
+</style>
+</textarea>
+<pre></pre>		
+	
+	HTML代码如下：
+<textarea class="code">
+<script type="text/javascript" src="../js/ddaccordion.js"></script>
+<div style="width:200px;">
+	<div class="arrowlistmenu">
+	<div class="menuheader"><a href="javascript:;" target="frmright">一级导航示例</a></div>
+	<div class="menuheader expandable">二级导航示例</div>
+	<ul class="categoryitems">
+	<li><a href="javascript:;" target="frmright"><span>第二级1</span></a></li>
+	<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+	</ul>
+	<div class="menuheader expandable">三级导航示例</div>
+	<ul class="categoryitems">
+	<li><a target="frmright"><span>第二级1</span></a>
+		<ul>
+			<li><a target="frmright"><span>第三极1</span></a></li>
+			<li><a href="javascript:;" target="frmright"><span>第三极2</span></a></li>
+			<li><a href="javascript:;" target="frmright"><span>第三极3</span></a></li>
+		</ul>
+	</li>
+	<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+	<li><a href="javascript:;" target="frmright"><span>第二级3</span></a></li>
+	</ul>
+	<div class="menuheader expandable">四级导航示例</div>
+	<ul class="categoryitems">
+	<li><a target="frmright"><span>第二级1</span></a>
+		<ul>
+			<li><a target="frmright"><span>第三极1</span></a>
+				<ul>
+					<li><a href="javascript:;" target="frmright"><span>第四级1</span></a></li>
+					<li><a href="javascript:;" target="frmright"><span>第四级2</span></a></li>
+				</ul>
+			</li>
+			<li><a href="javascript:;" target="frmright"><span>第三极2</span></a></li>
+			<li><a href="javascript:;" target="frmright"><span>第三极3</span></a></li>
+		</ul>
+	</li>
+	<li><a href="javascript:;" target="frmright"><span>第二级2</span></a></li>
+	<li><a href="javascript:;" target="frmright"><span>第二级3</span></a></li>
+	</ul>
+	</div>
+</div>
+</textarea>
+<pre></pre>	
+</div>
+应用示例见框架的抽屉型导航结构。 
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

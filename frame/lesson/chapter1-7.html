@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	本框架是以jQuery为底层库构建的。掌握基本的jQuery知识对于更好地使用本框架是很有必要的。这里列出的都是最基础的jQuery知识。
+	<div class="box2" panelWidth="800" panelTitle="jQuery概述">
+		简单地说，jQuery是一个js文件，在该文件中把传统的javascript脚本进行封装，并提供很多额外的调用接口（方法、属性等）。使用这些接口可以很方便地实现用传统javascript很难实现的功能或效果。
+		<br />当页面引入这个jQuery文件后就可以使用这些接口了。<br />
+		例如传统的javascript取得id="demo"的dom节点对象做法如下：
+<textarea class="code">
+document.getElementById("demo")
+</textarea>
+<pre></pre>	
+		使用jQuery的话只要
+<textarea class="code">
+$("#demo")
+</textarea>
+<pre></pre>	
+	使用#是通过id名来取得节点。如果要通过class名取得节点使用如下代码：
+<textarea class="code">
+$(".demo2")
+</textarea>
+<pre></pre>
+	如果有多个元素的class名称相同，则取得的是所有具有该class名称的节点对象。<br />
+	jQuery这两种方式取得的节点其实是一个jQuery对象。它不具备传统的dom节点对象的属性和方法，而是有jQuery对象的属性和方法。例如取得该节点后要设置文字颜色和背景色。传统方式：
+<textarea class="code">
+document.getElementById("demo").style.color="white";
+document.getElementById("demo").style.backgroundColor="black";
+</textarea>
+<pre></pre>	
+		jQuery中
+<textarea class="code">
+$("#demo").css({
+	"color":"white",
+	"backgroundColor":"black"
+})
+</textarea>
+<pre></pre>					
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="初始化函数">
+	jQuery使用如下代码替代传统的onload事件：
+<textarea class="code">
+$("document").ready(function(){
+	//代码段
+})
+</textarea>
+<pre></pre>	
+	或者用简写：
+<textarea class="code">
+$(function(){
+	//代码段
+})
+</textarea>
+<pre></pre>
+	这样有两个好处：	<br />
+	1、传统onload事件是在所有元素都加载完成后调用，有时候没必要等所有元素加载完成再执行，例如图片加载也要等到完成。而这种做法是所有dom节点初始化完后执行。	<br />
+	2、这种做法可以写多次。onload只能写一次。例如body中写了onload="myTest()"那么在js脚本中再使用window.onload=XXX则不会生效。	
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="事件监听">
+		传统JS中当点击一个按钮调用方法使用onclick=""。
+		当引入了jQuery文件后，可以使用如下代码相应点击事件：
+<textarea class="code">
+$(function(){
+	$("#demo").click(function(){
+		//代码段中使用$(this)来得到点击的对象
+	})
+})
+</textarea>
+<pre></pre>	
+		注意，事件的监听必须放在初始化函数中。传统方式和jQuery监听方式的使用依据情况而定，并没有孰优孰劣之分。<br />
+		使用jQuery监听方式在批量监听的情况很适用。例如
+<textarea class="code">
+$(function(){
+	$(".demo2").click(function(){
+		//代码段中使用$(this)来得到点击的对象
+	})
+})
+</textarea>
+<pre></pre>	
+	这样对于所有class="demo2"的按钮都做了监听。
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="取得节点对象">
+		除了使用#号和点之外，jQuery还有很多方式来取得节点对象。例如：<br />
+取得标签类型为div的所有节点：
+<textarea class="code">
+$("div")
+</textarea>
+<pre></pre>	
+
+取得class="help"并且类型为div的所有节点：
+<textarea class="code">
+$("div.help")
+</textarea>
+<pre></pre>	
+
+取得id为username并且类型为input的所有节点：
+<textarea class="code">
+$("input#username")
+</textarea>
+<pre></pre>	
+
+取得在id="menu"元素里面的类型为li的所有节点：
+<textarea class="code">
+$("#menu li")
+</textarea>
+<pre></pre>	
+
+取得在id="menu"元素里面的类型为div的第一级节点：
+<textarea class="code">
+$("#menu >div")
+</textarea>
+<pre></pre>	
+
+取得在id="menu"元素里面的类型为li的第一级节点中的最后一个：
+<textarea class="code">
+$("#menu >li:last")
+</textarea>
+<pre></pre>	
+
+取得类型为radio的input标签节点
+<textarea class="code">
+$("input:radio")
+</textarea>
+<pre></pre>	
+
+取得具有target属性的a标签
+<textarea class="code">
+$("a[target]")
+</textarea>
+<pre></pre>	
+
+取得name属性为r类型为radio的input标签节点
+<textarea class="code">
+$("input:radio[name='r']")
+</textarea>
+<pre></pre>	
+
+取得span标签中包含'合同'字样的节点
+<textarea class="code">
+$("span:contains('合同')")
+</textarea>
+<pre></pre>	
+
+除了上述使用选择器寻找节点外，还可以使用一些方法来寻找节点。一般与选择器综合使用。例如：<br />
+先用选择器取得name="t"的radio，再使用not()方法得到其中未选中的radio
+<textarea class="code">
+$("input:radio[name='t']").not("[checked]")
+</textarea>
+<pre></pre>	
+
+先用选择器取得name="t"的radio，再使用filter()方法得到其中选中的radio
+<textarea class="code">
+$("input:radio[name='t']").filter("[checked]")
+</textarea>
+<pre></pre>	
+
+使用eq()取得id="findP"里第三个p标签。（从0开始）
+<textarea class="code">
+$("#findP p").eq(2)
+</textarea>
+<pre></pre>	
+
+使用find()取得id="aaa"里的li元素
+<textarea class="code">
+$("#aaa").find("li")
+</textarea>
+<pre></pre>	
+
+获取aaa中包含silly的li元素但不能是第三个li后面
+<textarea class="code">
+$("#aaa").find("li").not(":gt(2)").filter(":contains(silly)")
+</textarea>
+<pre></pre>	
+:eq(index)选取索引等于index的元素<br />
+:gt(index)选取索引大于index的元素<br />
+:lt(index)选取索引小于index的元素
+
+	</div>
+	
+	<div class="box2" panelWidth="800" panelTitle="常用方法">
+addClass()方法：添加样式
+<textarea class="code">
+$("div").addClass("special");
+</textarea>
+<pre></pre>
+
+append()方法：添加内容或节点
+<textarea class="code">
+$("a[target]").append("追加文字");
+</textarea>
+<pre></pre>
+<textarea class="code">
+$("#menu3").append("<li>abc</li>");
+</textarea>
+<pre></pre>
+
+css()方法：重写/新增其样式内容
+<textarea class="code">
+$("#demo").css({
+	border:"solid 1px red",
+	backgroundColor:"white",
+	height:"100px"
+})
+</textarea>
+<pre></pre>
+
+hide()方法：隐藏节点，show()方法：显示节点<br />
+如果里面用数字做参数则以动画的方式隐藏/显示节点
+<textarea class="code">
+$("div.help").hide(500);
+</textarea>
+<pre></pre>
+
+val()方法：获取值，如果有参数则变为赋值
+<textarea class="code">
+$("#subBtn").click(function(){
+	if($("input#username").val()==""){
+		$("span.help").show();	
+		return;
+	}
+})
+</textarea>
+<pre></pre>
+
+attr("属性名")方法：获取某属性名的属性值。如果再加一个参数，则变为给该属性赋值
+<textarea class="code">
+$("iframe").attr("src","abc.html");
+</textarea>
+<pre></pre>
+
+width()方法：获得宽度，height()方法：获得高度<br />
+如果里面用数字做参数则变为设置宽高
+<textarea class="code">
+$("div#demo").height(500);
+</textarea>
+<pre></pre>
+
+each()方法：在取得某一类型的节点后，一般使用each()来做批量处理
+<textarea class="code">
+$("input:radio[name='r']").each(function(){
+	if($(this).attr("checked"))
+		alert($(this).val());
+})
+</textarea>
+<pre></pre>	
+
+append()和appendTo()方法：用于将动态创建的dom节点添加到页面中
+使用jQuery动态创建节点非常简单，例如要创建一个按钮，使用如下代码：
+<textarea class="code">
+$("<input type='button' value='按钮'>");
+</textarea>
+<pre></pre>	
+创建完后还看不到，因为没有添加到页面中。所以用如下方法：
+<textarea class="code">
+var obj=$("<input type='button' value='按钮'>");
+obj.appendTo($("body"))
+</textarea>
+<pre></pre>	
+或者
+<textarea class="code">
+var obj=$("<input type='button' value='按钮'>");
+$("body").append(obj)
+</textarea>
+<pre></pre>	
+若要动态创建一个下拉框代码如下：
+<textarea class="code">
+var $selbox=$('<select><option value="0">请选择功能</option><option value="1">
+	新增图片</option><option value="2">维护图片</option></select>')
+$("body").append($selbox)
+</textarea>
+<pre></pre>
+	</div>
+	
+	
+	
+	<div class="box2" panelWidth="800" panelTitle="jQuery对象与dom对象相互转换">
+		某些情况下需要二者互换。jQuery对象转dom对象：
+<textarea class="code">
+$("#demo")[0]
+</textarea>
+<pre></pre>	
+		dom对象转	jQuery	
+<textarea class="code">
+$(document.getElementById("demo"))
+</textarea>
+<pre></pre>	
+	</div>
+
+
+</div>				
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
+</html>

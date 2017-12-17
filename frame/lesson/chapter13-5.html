@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--框架必需start-->
+<script type="text/javascript" src="../js/jquery-1.4.js"></script>
+<script type="text/javascript" src="../js/framework.js"></script>
+<link href="../css/import_basic.css" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" id="skin"/>
+<!--框架必需end-->
+<body>
+<div id="scrollContent">
+	框架集成了对cookie的操作。使用cookie非常简单。如下：<br />
+	创建cookie：
+<textarea class="code">
+jQuery.jCookie('cookie','value')
+</textarea>
+<pre></pre>	
+
+	删除cookie：
+<textarea class="code">
+Query.jCookie('cookie',null)
+</textarea>
+<pre></pre>	
+
+	读取cookie：
+<textarea class="code">
+jQuery.jCookie('cookie')
+</textarea>
+<pre></pre>	
+	如果没有值则返回false<br /><br />
+
+	需要注意的是不能存数字0。如果确实要存0，则先转为string型。如
+<textarea class="code">
+var i=0;
+jQuery.jCookie('mycook',i.toString())
+</textarea>
+<pre></pre>		
+	在读取时用
+<textarea class="code">
+var cookValue=jQuery.jCookie('mycook');
+var useValue;
+if(cookValue!=false){
+	useValue=parseInt(cookValue);
+}
+</textarea>
+<pre></pre>	
+
+</div>					
+</body>
+<!--代码高亮start-->
+<script type="text/javascript" src="../js/jquery.appendDom.js"></script>
+<script>
+	$(function(){
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/highlight.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-xml.js'}]);
+			$('head').appendDom([{tagName  :'script',type : 'text/javascript',src : '../js/hl/lang-html.js'}]);
+			$('head').appendDom([{tagName  :'link', rel : 'stylesheet',type:'text/css',src : '../js/hl/style.css'}]);
+			setTimeout(showCode,1000)
+	})
+	function showCode(){
+		$(".code").each(function(){
+			var code =$(this).val()
+			var hl = new DlHighlight({lang: "html",lineNumbers :false });
+			var formatted = hl.doItNow(code);
+			$(this).next().addClass("DlHighlight").html("<pre>" + formatted + "</pre>")
+		})
+	}
+</script>
+<!--代码高亮end-->
